@@ -9,8 +9,9 @@
             echo "Password Mismatch";
         }else{
 
-            echo "Account Created successfully";
+
             header('location: index.php');
+            echo "Account Created successfully";
         }
     }
 
