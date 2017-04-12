@@ -23,8 +23,8 @@
         <title>Login</title>
     </head>
     
-    <body>
-    <div class="container-fluid wrapper">
+    <body class="wrapper">
+    <div class="container-fluid ">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" id="regwrapper">
 

@@ -1,12 +1,13 @@
 
 .wrapper{
     background-image: url("/ethics/images/bg.jpg") ;
-    background-repeat: no-repeat;
+
 
 }
 #loginwrapper, #regwrapper{
     margin-top: 260px;
-    border: 1px solid white ;
+    border: 1px solid transparent ;
+
     padding: 5px;
     box-shadow: black 3px;
 }

@@ -13,8 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
     <link rel="stylesheet" href="style.css" >
 </head>
-<body>
-    <div class="container wrapper">
+<body class="wrapper">
+    <div class="container ">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" id="loginwrapper">
                 
