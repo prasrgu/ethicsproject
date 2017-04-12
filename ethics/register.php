@@ -1,10 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 1613112
- * Date: 12/04/2017
- * Time: 09:54
- */
+    include ('connection.php');
+    if($_SERVER['REQUEST_METHOD']==='POST'){
+        if(empty($_POST['firstname']) || empty($_POST['lastname'])||empty($_POST['userid'])||empty($_POST['email'])||empty($_POST['role'])||empty($_POST['password'])||empty($_POST['password1'])){
+            echo "Please fill in all required fields";
+        }
+        if(!($_POST['password']=== $_POST['password1'])){
+            echo "Password Mismatch";
+        }else{
+
+            echo "Account Created successfully";
+            //header('location: index.php');
+        }
+    }
 
 ?>
 <!DOCTYPE html>
@@ -30,17 +37,18 @@
             <div class="col-md-4 col-md-offset-4" id="regwrapper">
                 <h2 class="hfont" align="center"> E-Review</h2>
                 <h3 align="center">Register</h3>
-        <form>
-                    <div class="form-group">
+        <form method="POST" action="register.php">
+                    <p align="center">All fields marked with (*) are mandatory</p>
+                    <div class="form-group"><span class="text-danger">*</span>
                         <input type="text" name="firstname" placeholder="firstname" class="form-control"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><span class="text-danger">*</span>
                         <input type="text" name="lastname" placeholder="Lastname" class="form-control"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><span class="text-danger">*</span>
                         <input type="text" name="userid" placeholder="login ID" class="form-control"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><span class="text-danger">*</span>
                         <input type="text" name="email" placeholder="Email" class="form-control"/>
                     </div>
                     <div class="form-group">
@@ -52,9 +60,8 @@
                     <div class="form-group">
                         <input type="text" name="address3" placeholder="Address Line 3" class="form-control"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><span class="text-danger">*</span>
                         <label for="role">Role</label>
-
                         <select name="role" class="form-control">
                         <option value="nothing">Please select a role</option>
                         <option value = "STUDENT">Student</option>
@@ -62,10 +69,10 @@
                         <option value="ADMIN">Admin</option>
                     </select>
                         </div>
-                    <div class="form-group">
+                    <div class="form-group"><span class="text-danger">*</span>
                         <input type="password" name="password" placeholder="Password" class="form-control"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><span class="text-danger">*</span>
                         <input type="password" name="password1" placeholder="Confirm Password" class="form-control"/>
                     </div>
 
