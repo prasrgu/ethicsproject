@@ -39,7 +39,7 @@
             }
 
             if($role !="STUDENT"){
-                $query1="INSERT INTO staff ( ) VALUES ('$userid','$role','$firstname', '$lastname', '$password', '$email', '$adres')";
+                $query1="INSERT INTO staff  VALUES ('$userid','$role','$firstname', '$lastname', '$password', '$email', '$adres')";
 
                // mysqli_query($link, $query1);
                 if (mysqli_query($link, $query1)) {
