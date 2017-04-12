@@ -16,7 +16,6 @@
                 <form>
                     <input type="text" name="firstname" placeholder="firstname"/>
                     <input type="text" name="lastname" placeholder="lastname"/>
-                    <input type="text" name="username" placeholder="firstname"/>
                     <input type="text" name="userid" placeholder="login ID"/>
                     <input type="email" name="email" placeholder="Email"/>
                     <input type="text" name="address" placeholder="Address Line 1"/>
