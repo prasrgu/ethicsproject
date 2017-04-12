@@ -26,14 +26,14 @@
             $role = $_POST['role'];
             $password  =password_hash($_POST['password'], PASSWORD_DEFAULT);
             if($role=="STUDENT"){
-                $query1="INSERT INTO student VALUES ('$firstname', '$lastname', '$userid', '$password', '$email', '$adres')";
+                $query1="INSERT INTO student VALUES ('{$firstname}', '{$lastname}', '{$userid}', '{$password}', '{$email}', '{$adres}')";
                 echo "I just prepared an insert statement";
                 mysqli_query($link, $query1);
                 echo "I just inserted the value into student";
             }
 
             if($role !="STUDENT"){
-                $query1="INSERT INTO staff VALUES ('$userid','$role','$firstname', '$lastname', '$password', '$email', '$adres')";
+                $query1="INSERT INTO staff VALUES ('{$userid}','{$role}','{$firstname}', '{$lastname}', '{$password}', '{$email}', '{$adres}')";
                 echo "I just prepared an insert statement";
                 mysqli_query($link, $query1);
                 echo "I just inserted the value into staff";
