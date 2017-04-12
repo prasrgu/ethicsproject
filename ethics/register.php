@@ -10,7 +10,7 @@
         }else{
 
             echo "Account Created successfully";
-            //header('location: index.php');
+            header('location: index.php');
         }
     }
 
