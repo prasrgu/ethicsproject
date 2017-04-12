@@ -23,7 +23,7 @@
     </head>
     
     <body>
-    <div class="container-fluid">
+    <div class="container-fluid wrapper">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" id="regwrapper">
 

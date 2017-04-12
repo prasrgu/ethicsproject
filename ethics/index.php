@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css" >
 </head>
 <body>
-    <div class="container">
+    <div class="container wrapper">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" id="loginwrapper">
                 
