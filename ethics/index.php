@@ -5,18 +5,19 @@
             $username = $_POST['username'];
             $pword = $_POST['password'];
             $query2= "SELECT * FROM student WHERE student_ID ='$username' ";
+            $query3 ="SELECT * FROM staff WHERE staff_ID ='$username' ";
                $result1=  mysqli_query($link, $query2);
+                $result2=  mysqli_query($link, $query3);
             $row = "";
-                if(!$result1){
-                    echo "Could not run query ";
-                }
-                else {
 
-
-                    if(mysqli_num_rows($result1)==1){
-                        $row =mysqli_fetch_assoc($result1);
+                    if(mysqli_num_rows($result1)==1 ) {
+                        $row = mysqli_fetch_assoc($result1);
+                    }
+                    else if(mysqli_num_rows($result2)==1){
+                            $row = mysqli_fetch_assoc($result2);
+                    }
                         $hash = $row['password'];
-                        if(password_verify($pword, $hash)) {
+                    if(password_verify($pword, $hash)) {
                             session_start();
 
 
@@ -31,12 +32,12 @@
                         echo "Invalid Login Please Try Again";
                     }
                     
-                }
 
-            echo "{$username}"."{$pword}";
+
+
         }else{
             echo "Invalid login : Both fields are required";
-        }
+        
     }
 
 
