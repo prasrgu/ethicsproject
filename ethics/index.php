@@ -21,7 +21,9 @@
                             session_start();
 
 
-                            $_SESSION['currentuser'] = $row['email'];
+                            $_SESSION['ufname'] = $row['firstname'];
+                            $_SESSION['ulname'] = $row['lastname'];
+                            $_SESSION['uemail'] = $row['email'];
 
                            header('location: landing.php');
                         }
