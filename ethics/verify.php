@@ -24,6 +24,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
         else{
             header('location: index.php');
+                
         }
         $hash = $row['password'];
         if(password_verify($pword, $hash)) {
