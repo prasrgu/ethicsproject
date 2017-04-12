@@ -3,7 +3,8 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if(!empty($_POST['username']) && !empty($_POST['password'])) {
             $username = $_POST['username'];
-            $pword = password_hash($_POST['password'],  PASSWORD_DEFAULT);
+            $pword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+           // $pword = password_hash($_POST['password'],  PASSWORD_DEFAULT);
             echo "{$username}"."{$pword}";
         }else{
             echo "Invalid login : Both fields are required";
