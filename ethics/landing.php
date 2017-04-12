@@ -9,8 +9,8 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
 
     session_start();
     if($_SESSION['currentuser']!=null) {
-        $presentuser = $_SESSION['currentuser'];
-        print_r($presentuser);
+
+        print_r($_SESSION['currentuser']);
     }
     else{
         header ('location : index.php');
