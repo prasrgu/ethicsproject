@@ -38,10 +38,7 @@
 
 
 
-        }else{
-            echo "Invalid login : Both fields are required";
-
-    }
+        }
 
 
 
