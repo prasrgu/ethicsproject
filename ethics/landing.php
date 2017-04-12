@@ -6,7 +6,7 @@
  * Time: 16:06
  */
     session_start();
-if(isset($_SESSION['firstname'])) {
+if(isset($_SESSION['ufname'])) {
 
 
     print_r($_SESSION);
@@ -18,4 +18,4 @@ if(isset($_SESSION['firstname'])) {
 
 
 ?>
-<h2> Welcome <? echo $_SESSION['firstname']."!"; ?></h2>
+<h2> Welcome <? echo $_SESSION['firstname']."!<h1>Welcome Prasana</h1>"; ?></h2>
