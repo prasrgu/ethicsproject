@@ -9,7 +9,7 @@ include('connection.php');
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!empty($_POST['username']) && !empty($_POST['password'])) {
         $username = $_POST['username'];
-        $pword = $_POST['password'];
+        $pword = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $query2= "SELECT * FROM student WHERE student_ID ='$username' ";
         $query3 ="SELECT * FROM staff WHERE staff_ID ='$username' ";
         $result1=  mysqli_query($link, $query2);
@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
         else{
             header('location: index.php');
-                
+
         }
         $hash = $row['password'];
         if(password_verify($pword, $hash)) {
@@ -46,8 +46,4 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         echo "Invalid Login Please Try Again";
         header('location: index.php');
     }
-
-
-
-
 }
