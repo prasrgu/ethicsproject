@@ -28,10 +28,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
         $hash = $row['password'];
         if(password_verify($pword, $hash)) {
-            session_start();
-            $_SESSION['ufname'] = $row['firstname'];
-            $_SESSION['ulname'] = $row['lastname'];
-            $_SESSION['uemail'] = $row['email'];
+          //  session_start();
+          //  $_SESSION['ufname'] = $row['firstname'];
+         //   $_SESSION['ulname'] = $row['lastname'];
+       //     $_SESSION['uemail'] = $row['email'];
 
             header('location: landing.php');
             exit;
