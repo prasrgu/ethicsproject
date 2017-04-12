@@ -34,9 +34,16 @@
 
             if($role !="STUDENT"){
                 $query1="INSERT INTO staff VALUES ('{$userid}','{$role}','{$firstname}', '{$lastname}', '{$password}', '{$email}', '{$adres}')";
-                echo "I just prepared an insert statement";
-                mysqli_query($link, $query1);
-                echo "I just inserted the value into staff";
+
+               // mysqli_query($link, $query1);
+                if (mysqli_query($link, $query1)) {
+                    echo "New record created successfully";
+                        } else {
+                    echo "Error: " . $query1 . "<br>" . mysqli_error($link);
+                        }
+
+                mysqli_close($link);
+
             }
 
             //header('location: index.php');
