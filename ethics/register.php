@@ -27,9 +27,15 @@
             $password  =password_hash($_POST['password'], PASSWORD_DEFAULT);
             if($role=="STUDENT"){
                 $query1="INSERT INTO student VALUES ('$firstname', '$lastname', '$userid', '$password', '$email', '$adres')";
-                echo "I just prepared an insert statement";
-                mysqli_query($link, $query1);
-                echo "I just inserted the value into student";
+
+                if (mysqli_query($link, $query1)) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $query1 . "<br>" . mysqli_error($link);
+                }
+
+                mysqli_close($link);
+
             }
 
             if($role !="STUDENT"){
