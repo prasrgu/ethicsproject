@@ -1,11 +1,7 @@
 <?php
     include ('connection.php');
     if($_SERVER['REQUEST_METHOD']==='POST'){
-        print_r($_POST);
-        if(empty($_POST['password']) ||empty($_POST['password1'])){
-            echo "Password fields are required";
-        }
-        elseif(empty($_POST['firstname']) || empty($_POST['lastname'])||empty($_POST['userid'])||empty($_POST['email'])||($_POST['role'] =='nothing')){
+        if(empty($_POST['firstname']) || empty($_POST['lastname'])||empty($_POST['userid'])||empty($_POST['email'])||($_POST['role'] =='nothing')||empty($_POST['password'])||empty($_POST['password1'])){
             echo "Please fill in all required fields";
         }
 
