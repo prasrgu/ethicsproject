@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 1613112
- * Date: 12/04/2017
- * Time: 16:06
- */
+include('index.php');
+
 if($_SERVER['REQUEST_METHOD'] ==='POST'){
 
-    session_start();
+
     if($_SESSION['currentuser']!=null) {
 
         print_r($_SESSION);
@@ -18,4 +14,4 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
 
 }
 ?>
-<h2> Welcome <? echo $presentuser['firstname']."!"; ?></h2>
+<h2> Welcome <? echo $_SESSION['currentuser']['firstname']."!"; ?></h2>
