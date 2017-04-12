@@ -20,6 +20,9 @@
                         $_SESSION['currentuser'] =$row;
                         header('location: landing.php');
                     }
+                    else{
+                        echo "Invalid Login Please Try Again";
+                    }
                     
                 }
 
