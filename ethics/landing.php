@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
     session_start();
     if($_SESSION['currentuser']!=null) {
 
-        print_r($_SESSION['currentuser']);
+        print_r($_SESSION);
     }
     else{
         header ('location : index.php');
