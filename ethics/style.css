@@ -5,10 +5,10 @@
 
 }
 #loginwrapper, #regwrapper{
-    margin-top: 240px;
+    margin-top: 230px;
     border: 1px solid white;
     background-color: #ecf0f1;
-    padding: 40px;
+    padding: 80px;
     box-shadow: gray 10px;
 
 }

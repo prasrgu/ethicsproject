@@ -27,7 +27,8 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" id="regwrapper">
-
+                <h2> E-Review</h2>
+                <h3>Register</h3>
         <form>
                     <div class="form-group">
                         <input type="text" name="firstname" placeholder="firstname" class="form-control"/>
