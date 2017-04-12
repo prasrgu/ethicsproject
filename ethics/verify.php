@@ -9,7 +9,7 @@ include('connection.php');
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!empty($_POST['username']) && !empty($_POST['password'])) {
         $username = $_POST['username'];
-        $pword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $pword = $_POST['password'];
         $query2= "SELECT * FROM student WHERE student_ID ='$username' ";
         $query3 ="SELECT * FROM staff WHERE staff_ID ='$username' ";
         $result1=  mysqli_query($link, $query2);
@@ -30,7 +30,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if(password_verify($pword, $hash)) {
             session_start();
 
-
+echo "i am here";
+            exit;
             $_SESSION['ufname'] = $row['firstname'];
             $_SESSION['ulname'] = $row['lastname'];
             $_SESSION['uemail'] = $row['email'];
