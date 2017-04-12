@@ -4,7 +4,7 @@
         if(!empty($_POST['username']) && !empty($_POST['password'])) {
             $username = $_POST['username'];
             $pword = password_hash($_POST['password'],  PASSWORD_DEFAULT);
-            echo "{$username}"."{$pword}";
+            echo "{$username}"."{$_POST['password']}";
         }else{
             echo "Invalid login : Both fields are required";
         }
