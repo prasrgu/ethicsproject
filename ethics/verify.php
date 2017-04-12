@@ -34,6 +34,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $_SESSION['uemail'] = $row['email'];
 
             header('location: landing.php');
+            exit;
         }
         else{
             echo "Incorrect Password";
