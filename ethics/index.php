@@ -22,8 +22,8 @@
 
 
                             $_SESSION['currentuser'] = $row;
-                            print_r( $_SESSION);
-                           // header('location: landing.php');
+
+                           header('location: landing.php');
                         }
                         else{
                             echo "Incorrect Password";
