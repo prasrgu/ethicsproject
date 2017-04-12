@@ -35,6 +35,7 @@
                 }
 
                 mysqli_close($link);
+                header('location: index.php');
 
             }
 
@@ -49,6 +50,7 @@
                         }
 
                 mysqli_close($link);
+                header('location: index.php');
 
             }
 
