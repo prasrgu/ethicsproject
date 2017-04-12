@@ -29,9 +29,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $hash = $row['password'];
         if(password_verify($pword, $hash)) {
             session_start();
-
-echo "i am here";
-            exit;
             $_SESSION['ufname'] = $row['firstname'];
             $_SESSION['ulname'] = $row['lastname'];
             $_SESSION['uemail'] = $row['email'];
