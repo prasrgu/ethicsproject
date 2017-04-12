@@ -22,7 +22,8 @@
 
 
                             $_SESSION['currentuser'] = $row;
-                            header('location: landing.php');
+                            print_r( $_SESSION);
+                           // header('location: landing.php');
                         }
                         else{
                             echo "Incorrect Password";
@@ -37,7 +38,7 @@
 
         }else{
             echo "Invalid login : Both fields are required";
-        
+
     }
 
 
