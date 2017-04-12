@@ -6,8 +6,9 @@
 }
 #loginwrapper, #regwrapper{
     margin-top: 240px;
-    border: 1px solid transparent ;
+    border: 1px solid white;
     background-color: white;
-    padding: 5px;
+    padding: 15px;
+    box-shadow: gray 10px;
 
 }
