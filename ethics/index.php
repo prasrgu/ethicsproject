@@ -3,8 +3,8 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if(!empty($_POST['username']) && !empty($_POST['password'])) {
             $username = $_POST['username'];
-            $pword = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $query2= "SELECT * FROM student WHERE student_ID ='$username' AND password = '$pword'";
+            $pword = $_POST['password'];
+            $query2= "SELECT * FROM student WHERE student_ID ='$username' ";
                $result1=  mysqli_query($link, $query2);
             $row = "";
                 if(!$result1){
@@ -14,11 +14,18 @@
 
 
                     if(mysqli_num_rows($result1)==1){
-                        session_start();
                         $row =mysqli_fetch_assoc($result1);
+                        $hash = $row['password'];
+                        if(password_verify($pword, $hash)) {
+                            session_start();
 
-                        $_SESSION['currentuser'] =$row;
-                        header('location: landing.php');
+
+                            $_SESSION['currentuser'] = $row;
+                            header('location: landing.php');
+                        }
+                        else{
+                            echo "Incorrect Password";
+                        }
                     }
                     else{
                         echo "Invalid Login Please Try Again";
