@@ -1,7 +1,7 @@
 <?php
     include ('connection.php');
     if($_SERVER['REQUEST_METHOD']==='POST'){
-        if(empty($_POST['firstname']) || empty($_POST['lastname'])||empty($_POST['userid'])||empty($_POST['email'])||empty($_POST['role'])||empty($_POST['password'])||empty($_POST['password1'])){
+        if(empty($_POST['firstname']) || empty($_POST['lastname'])||empty($_POST['userid'])||empty($_POST['email'])||($_POST['role'] !='nothing')||empty($_POST['password'])||empty($_POST['password1'])){
             echo "Please fill in all required fields";
         }
 
@@ -9,9 +9,38 @@
             echo "Password Mismatch";
         }else{
 
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $userid = $_POST['userid'];
+            $email=$_POST['email'];
+            $adres= "";
+            if(!empty($_POST['address'])){
+                $adres = $_POST['address']." ";
+                if(!empty($_POST['address2'])){
+                    $adres =$adres. $_POST['address2']." ";
+                    if(!empty($_POST['address3'])){
+                        $adres = $adres.$_POST['address3']." ";
+                    }
+                }
+            }
+            $role = $_POST['role'];
+            $password  =password_hash($_POST['password'], PASSWORD_DEFAULT);
+            if($role=="STUDENT"){
+                $query1="INSERT INTO student VALUES ($firstname, $lastname, $userid, $password, $email, $adres)";
+                echo "I just prepared an insert statement";
+                mysqli_query($link, $query1);
+                echo "I just inserted the value into student";
+            }
 
-            header('location: index.php');
-            echo "Account Created successfully";
+            if($role !="STUDENT"){
+                $query1="INSERT INTO staff VALUES ($userid,$role,$firstname, $lastname, $password, $email, $adres)";
+                echo "I just prepared an insert statement";
+                mysqli_query($link, $query1);
+                echo "I just inserted the value into staff";
+            }
+
+            //header('location: index.php');
+
         }
     }
 
