@@ -11,14 +11,15 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Philosopher" rel="stylesheet">
     <link rel="stylesheet" href="style.css" >
 </head>
 <body class="wrapper">
     <div class="container ">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" id="loginwrapper">
-                <h2> E-Review</h2>
-                <h3>Log in</h3>
+                <h2 class="hfont" align="center"> E-Review</h2>
+                <h3 align="center">Log in</h3>
 
             <form>
             <div class="form-group">

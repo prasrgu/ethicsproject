@@ -4,11 +4,16 @@
 
 
 }
+.hfont{
+    font-family: 'Kaushan Script', cursive;
+}
+
 #loginwrapper, #regwrapper{
     margin-top: 230px;
     border: 1px solid white;
     background-color: #ecf0f1;
-    padding: 80px;
-    box-shadow: gray 10px;
+    padding: 50px;
+    font-family: 'Philosopher', sans-serif;
+
 
 }

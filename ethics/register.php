@@ -19,6 +19,7 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Philosopher" rel="stylesheet">
         <link rel="stylesheet" href="style.css" >
         <title>Login</title>
     </head>
@@ -27,8 +28,8 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" id="regwrapper">
-                <h2> E-Review</h2>
-                <h3>Register</h3>
+                <h2 class="hfont" align="center"> E-Review</h2>
+                <h3 align="center">Register</h3>
         <form>
                     <div class="form-group">
                         <input type="text" name="firstname" placeholder="firstname" class="form-control"/>
