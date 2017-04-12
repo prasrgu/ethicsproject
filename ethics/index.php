@@ -4,7 +4,25 @@
         if(!empty($_POST['username']) && !empty($_POST['password'])) {
             $username = $_POST['username'];
             $pword = password_hash($_POST['password'], PASSWORD_DEFAULT);
-         
+            $query2= "SELECT * FROM student WHERE student_ID =$username AND password = $pword ";
+               $result1=  mysqli_query($link, $query2);
+            $row = "";
+                if(!$result1){
+                    echo "Could not run query ";
+                }
+                else {
+
+
+                    if(mysqli_num_rows($result1)==1){
+                        session_start();
+                        $row =mysqli_fetch_assoc($result1);
+
+                        $_SESSION['currentuser'] =$row;
+                        header('location: landing.php');
+                    }
+                    
+                }
+
             echo "{$username}"."{$pword}";
         }else{
             echo "Invalid login : Both fields are required";
