@@ -4,7 +4,8 @@
         if(empty($_POST['firstname']) || empty($_POST['lastname'])||empty($_POST['userid'])||empty($_POST['email'])||empty($_POST['role'])||empty($_POST['password'])||empty($_POST['password1'])){
             echo "Please fill in all required fields";
         }
-        if(!($_POST['password']=== $_POST['password1'])){
+
+        elseif(!($_POST['password']=== $_POST['password1'])){
             echo "Password Mismatch";
         }else{
 
