@@ -12,7 +12,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 </head>
 <body>
-        <form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                
+
+
+            <form>
             <div class="form-group">
                 <input type="text" name="username" placeholder ="Username" class="form-control"/>
             </div>
@@ -23,10 +29,10 @@
 
             <button type="submit" class="btn btn-primary"> Log in</button>
         </form>
+         </div>
+        </div>
 
-
-
-
+        </div>
 </body>
 </html>
 
