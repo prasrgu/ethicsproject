@@ -7,15 +7,16 @@ if(isset($_SESSION['ufname'])) {
 
         if(!empty($_POST['ptitle'])&&!empty($_POST['pdesc'])&&!empty($_POST['psubdate'])){
 
-            $curdate = date("Y-m-d");
+            $curdate = date("d-m-Y");
             $ptitle = $_POST['ptitle'];
             $pdesc=$_POST['pdesc'];
-            $psubdate=$_POST['psubdate'];
+            $psubdate=strtotime($_POST['psubdate']);
             $stdId = $_SESSION['uid'];
+            $diff = $ceil(abs($curdate - $psubdate) / 86400);
 
             echo $_SESSION['ufname'];
             echo $curdate;
-            if($diff>1){
+            if($diff>0){
                 $sq1 = "INSERT INTO projects ('title', 'decscription' 'submissionDate', 'std_ID')  VALUES ('$ptitle','$pdesc','$psubdate', '$stdId')";
 
                 if (mysqli_query($link, $sq1)) {
