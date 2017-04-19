@@ -10,6 +10,8 @@ if(isset($_SESSION['ufname'])) {
             $psubdate=$_POST['psubdate'];
             $stdId = $_SESSION['uid'];
             $diff= $curdate->diff($psudate)->format("%a");
+            echo $curdate;
+            print_r($_POST);
             if($diff>1){
                 $sq1 = "INSERT INTO projects ('title', 'decscription' 'submissionDate', 'std_ID')  VALUES ('$ptitle','$pdesc','$psubdate', '$stdId')";
 
