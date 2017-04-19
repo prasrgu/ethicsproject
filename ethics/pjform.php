@@ -15,7 +15,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Add Project</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 
     <!-- Optional theme -->
@@ -79,8 +79,8 @@ else{
 
 <form>
     <div class="form-group">
-    <label for="ptitle" >Project Title</label>
-    <input type="text" name="ptitle"  class="form-control" placeholder="Project Title"/>
+        <label for="ptitle" >Project Title</label>
+        <input type="text" name="ptitle"  class="form-control" placeholder="Project Title"/>
     </div>
     <div class="form-group">
         <textarea class="form-control" placeholder="Please Enter The Description"></textarea>
