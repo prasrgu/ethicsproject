@@ -5,33 +5,31 @@ include('connection.php');
 if(isset($_SESSION['ufname'])) {
  if($_SERVER['REQUEST_METHOD']=='POST'){
 
-        if(!empty($_POST['ptitle'])&&!empty($_POST['pdesc'])&&!empty($_POST['psubdate'])){
+        if(!empty($_POST['ptitle'])&&!empty($_POST['pdesc'])&&!empty($_POST['psubdate'])) {
 
             $curdate = date("d-m-Y");
             $ptitle = $_POST['ptitle'];
-            $pdesc=$_POST['pdesc'];
-            $psubdate=strtotime($_POST['psubdate']);
+            $pdesc = $_POST['pdesc'];
+            $psubdate = strtotime($_POST['psubdate']);
             $stdId = $_SESSION['uid'];
-            $diff = $ceil(abs($curdate - $psubdate) / 86400);
+
 
             echo $_SESSION['ufname'];
             echo $curdate;
-            if($diff>0){
-                $sq1 = "INSERT INTO projects ('title', 'decscription' 'submissionDate', 'std_ID')  VALUES ('$ptitle','$pdesc','$psubdate', '$stdId')";
 
-                if (mysqli_query($link, $sq1)) {
-                    echo "New record created successfully";
-                } else {
-                    echo "Error: " . $query1 . "<br>" . mysqli_error($link);
-                }
+            $sq1 = "INSERT INTO projects ('title', 'decscription' 'submissionDate', 'std_ID')  VALUES ('$ptitle','$pdesc','$psubdate', '$stdId')";
 
-                mysqli_close($link);
+            if (mysqli_query($link, $sq1)) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $sq1 . "<br>" . mysqli_error($link);
             }
+
+            mysqli_close($link);
+        }
         }
   }
 
-
-}
 
 else{
     header ('location : index.php');
