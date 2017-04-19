@@ -7,6 +7,9 @@
 .hfont{
     font-family: 'Kaushan Script', cursive;
 }
+.wraps{
+    background-color:  #28446C;
+}
 
 #loginwrapper, #regwrapper{
     margin-top: 200px;
