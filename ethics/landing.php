@@ -9,7 +9,7 @@
 if(isset($_SESSION['ufname'])) {
 
 
-    print_r($_SESSION);
+
 }
     
     else{
@@ -18,7 +18,7 @@ if(isset($_SESSION['ufname'])) {
 
 
 ?>
-<h2> <? echo "Welcome ".$_SESSION['ufname']; ?></h2>
+
 
 
 <!DOCTYPE html>
@@ -41,8 +41,8 @@ if(isset($_SESSION['ufname'])) {
 
     </head>
     <body>
-    <nav class="navbar navbar-default wraps">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default ">
+        <div class="container-fluid wraps">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -81,7 +81,7 @@ if(isset($_SESSION['ufname'])) {
         </div><!-- /.container-fluid -->
     </nav>
 
-
+    <h2> <? echo "Welcome ".$_SESSION['ufname']; ?></h2>
 
     </body>
 
