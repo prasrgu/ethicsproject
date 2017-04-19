@@ -38,6 +38,9 @@ if(isset($_SESSION['ufname'])) {
         <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Philosopher" rel="stylesheet">
         <link rel="stylesheet" href="style.css" >
 
+        <script src="https://use.fontawesome.com/425f6058af.js"></script>
+
+
 
     </head>
     <body>
@@ -82,6 +85,23 @@ if(isset($_SESSION['ufname'])) {
     </nav>
 
     <h2> <? echo "Welcome ".$_SESSION['ufname']; ?></h2>
+
+    <div class="container" >
+        <div class="row">
+            <div class = "col-md-4 col-md-offset-4">
+                <span class="cent"> Add Project <i class="fa fa-plus" aria-hidden="true"></i></span>
+                <span class="cent">Edit Project <i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+
+
+            </div>
+            <div class = "col-md-4 col-md-offset-4">
+                <span class="cent"> View Projects <i class="fa fa-list" aria-hidden="true"></i></span>
+                <span class="cent">Edit Profile <i class="fa fa-wrench" aria-hidden="true"></i></span>
+
+
+            </div>
+        </div>
+    </div>
 
     </body>
 

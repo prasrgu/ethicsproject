@@ -9,7 +9,7 @@
 }
 .wraps{
     background-color:  #28446C;
-    color: white;
+
 }
 
 #loginwrapper, #regwrapper{
@@ -20,4 +20,10 @@
     font-family: 'Philosopher', sans-serif;
 
 
+}
+nav{
+    color: white;
+}
+.cent{
+    text-align: center;
 }
