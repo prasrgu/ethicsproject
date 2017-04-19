@@ -1,9 +1,10 @@
 <?php
 session_start();
 include('connection.php');
-echo $_POST['ptitle'];
+
 if(isset($_SESSION['ufname'])) {
     if($_SERVER['REQUEST_METHOD']==='post'){
+        echo $_POST['ptitle'];
         if(!empty($_POST['ptitle'])&&!empty($_POST['pdesc'])&&!empty($_POST['psubdate'])){
             $curdate = date("Y-m-d");
             $ptitle = $_POST['ptitle'];
