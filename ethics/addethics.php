@@ -6,7 +6,7 @@ if(isset($_SESSION['ufname'])) {
  if($_SERVER['REQUEST_METHOD']=='POST'){
 
         if(!empty($_POST['ptitle'])&&!empty($_POST['pdesc'])&&!empty($_POST['psubdate'])){
-            echo $_POST['ptitle'];
+
             $curdate = date("Y-m-d");
             $ptitle = $_POST['ptitle'];
             $pdesc=$_POST['pdesc'];
@@ -14,7 +14,7 @@ if(isset($_SESSION['ufname'])) {
             $stdId = $_SESSION['uid'];
             $diff= $curdate->diff($psudate)->format("%a");
             echo $_SESSION['ufname'];
-
+            echo $_POST['ptitle'];
             if($diff>1){
                 $sq1 = "INSERT INTO projects ('title', 'decscription' 'submissionDate', 'std_ID')  VALUES ('$ptitle','$pdesc','$psubdate', '$stdId')";
 
