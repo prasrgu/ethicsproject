@@ -93,7 +93,7 @@ if(isset($_SESSION['ufname'])) {
                 <span class="cent"><a> <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i><br/>Edit Project</a></span>
 
 
-            </div><br/><br/>
+            </div>
             <div class = "col-md-4 col-md-offset-4 space">
                 <span class="cent"> <a><i class="fa fa-list fa-5x" aria-hidden="true" ></i><br/>View Projects </a></span>
                 <span class="cent"><a> <i class="fa fa-wrench fa-5x" aria-hidden="true"></i> <br/>Edit Profile</a></span>
