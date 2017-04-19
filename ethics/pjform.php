@@ -75,26 +75,26 @@ else{
     </div><!-- /.container-fluid -->
 </nav>
 
-
+        <h2 class="down">Add Project</h2>
 
 <form class="form-horizontal">
     <div class="form-group">
         <label for="ptitle" class="col-md-2 col-md-offset-2 control-label">Project Title</label>
         <div class="col-md-4">
-        <input type="text" name="ptitle"  class="form-control" placeholder="Project Title"/>
-    </div>
+            <input type="text" name="ptitle"  class="form-control" placeholder="Project Title"/>
+        </div>
     </div>
     <div class="form-group">
         <label for="pdesc" class="col-md-2 col-md-offset-2 control-label">Description</label>
         <div class="col-md-4" >
-        <textarea class="form-control" placeholder="Please Enter The Description"></textarea>
-    </div >
+            <textarea class="form-control" placeholder="Please Enter The Description"></textarea>
+        </div >
     </div>
     <div class="form-group">
         <label for="subdate" class="col-md-2 col-md-offset-2 control-label" >Submission Date</label>
         <div class="col-md-4">
-        <input type="date" name="psubdate"  class="form-control"/>
-    </div>
+            <input type="date" name="psubdate"  class="form-control"/>
+        </div>
     </div>
 
 </form>
