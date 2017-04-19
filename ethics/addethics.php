@@ -1,7 +1,28 @@
 <?php
 session_start();
+include('connection.php');
 if(isset($_SESSION['ufname'])) {
+    if($_SERVER['REQUEST_METHOD']==='post'){
+        if(!empty($_POST['ptitle'])&&!empty($_POST['pdesc'])&&!empty($_POST['psubdate'])){
+            $curdate = date("Y-m-d");
+            $ptitle = $_POST['ptitle'];
+            $pdesc=$_POST['pdesc'];
+            $psubdate=$_POST['psubdate'];
+            $stdId = $_SESSION['uid'];
+            $diff= $curdate->diff($psudate)->format("%a");
+            if($diff>1){
+                $sq1 = "INSERT INTO projects ('title', 'decscription' 'submissionDate', 'std_ID')  VALUES ('$ptitle','$pdesc','$psubdate', '$stdId')";
 
+                if (mysqli_query($link, $sq1)) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $query1 . "<br>" . mysqli_error($link);
+                }
+
+                mysqli_close($link);
+            }
+        }
+    }
 
 
 }
@@ -75,11 +96,15 @@ else{
     </div><!-- /.container-fluid -->
 </nav>
 
-        <h2 class="col-md-4 col-md-offset-4 down">Add Project</h2> <br/>
+<h2 class="col-md-4 col-md-offset-4 down">Add Ethics</h2> <br/>
+    <div>
+        <span>Project Title: </span> <?php echo $ptitle; ?>
+        <span>Submission Date: </span> <?php echo $psubdate; ?>
+    </div>
 
-<form class="form-horizontal" action="addethics.php" method="post">
+<form class="form-horizontal" action="success.php" method="post">
     <div class="form-group">
-        <label for="ptitle" class="col-md-2 col-md-offset-2 control-label">Project Title</label>
+        <label for="ptitle" class="col-md-2 col-md-offset-2 control-label">Title</label>
         <div class="col-md-4">
             <input type="text" name="ptitle"  class="form-control" placeholder="Project Title"/>
         </div>
@@ -87,7 +112,7 @@ else{
     <div class="form-group">
         <label for="pdesc" class="col-md-2 col-md-offset-2 control-label">Description</label>
         <div class="col-md-4" >
-            <textarea class="form-control"  name="pdesc" placeholder="Please Enter The Description"></textarea>
+            <textarea class="form-control" placeholder="Please Enter The Description" ></textarea>
         </div >
     </div>
     <div class="form-group">
@@ -95,9 +120,16 @@ else{
         <div class="col-md-4">
             <input type="date" name="psubdate"  class="form-control"/>
         </div>
+    </div>
+    <div class="form-group">
+        <label for="etfile" class="col-md-2 col-md-offset-2 control-label">Ethics Document</label>
+        <div class="col-md-4">
+            <input type="file" name="etdoc"  class="form-control" />
+        </div>
 
     </div>
-    <button type="submit" value="Add Project"></button>
+    <button>Add Suppporting Documents</button>
+    <button type="submit" value="Add Ethics"></button>
 
 </form>
 </body>

@@ -15,12 +15,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $result1=  mysqli_query($link, $query2);
         $result2=  mysqli_query($link, $query3);
         $row = "";
+        $checker= -1;
 
         if(mysqli_num_rows($result1)==1 ) {
             $row = mysqli_fetch_assoc($result1);
+            $checker = 0;
         }
         else if(mysqli_num_rows($result2)==1){
             $row = mysqli_fetch_assoc($result2);
+            $checker=1;
         }
         else{
             header('location: index.php');
@@ -32,7 +35,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $_SESSION['ufname'] = $row['firstname'];
             $_SESSION['ulname'] = $row['lastname'];
            $_SESSION['uemail'] = $row['email'];
-
+          if($checker==0) {
+              $_SESSION['uid'] = $row['student_ID'];
+          }
+          else{
+              $_SESSION['uid'] = $row['staff_ID'];
+          }
             header('location: landing.php');
             exit;
         }
