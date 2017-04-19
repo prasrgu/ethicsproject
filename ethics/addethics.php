@@ -10,7 +10,7 @@ if(isset($_SESSION['ufname'])) {
             $curdate = date("d-m-Y");
             $ptitle = $_POST['ptitle'];
             $pdesc = $_POST['pdesc'];
-            $psubdate = strtotime($_POST['psubdate']);
+            $psubdate = ($_POST['psubdate']);
             $stdId = $_SESSION['uid'];
 
 
