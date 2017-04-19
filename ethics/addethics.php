@@ -17,7 +17,7 @@ if(isset($_SESSION['ufname'])) {
             echo $_SESSION['ufname'];
             echo $curdate;
 
-            $sq1 = "INSERT INTO projects ('title', 'decscription', 'submissionDate', 'std_ID')  VALUES ('$ptitle','$pdesc','$psubdate', '$stdId')";
+            $sq1 = "INSERT INTO projects (title, description, submissionDate, std_ID)  VALUES ('$ptitle','$pdesc','$psubdate', '$stdId')";
 
             if (mysqli_query($link, $sq1)) {
                 echo "New record created successfully";
