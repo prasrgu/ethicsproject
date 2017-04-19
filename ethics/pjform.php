@@ -77,17 +77,24 @@ else{
 
 
 
-<form>
+<form class="form-horizontal">
     <div class="form-group">
-        <label for="ptitle" >Project Title</label>
+        <label for="ptitle" class="col-md-2 col-md-offset-2 control-label">Project Title</label>
+        <div class="col-md-4">
         <input type="text" name="ptitle"  class="form-control" placeholder="Project Title"/>
     </div>
-    <div class="form-group">
-        <textarea class="form-control" placeholder="Please Enter The Description"></textarea>
     </div>
     <div class="form-group">
-        <label for="subdate" >Submission Date</label>
+        <label for="pdesc" class="col-md-2 col-md-offset-2 control-label">Description</label>
+        <div class="col-md-4" >
+        <textarea class="form-control" placeholder="Please Enter The Description"></textarea>
+    </div >
+    </div>
+    <div class="form-group">
+        <label for="subdate" class="col-md-2 col-md-offset-2 control-label" >Submission Date</label>
+        <div class="col-md-4">
         <input type="date" name="psubdate"  class="form-control"/>
+    </div>
     </div>
 
 </form>
