@@ -29,10 +29,10 @@ if (($imgSize < 11048576) && !empty($et) && !empty($epto)){
     $sql = "INSERT INTO ethics VALUES('$et', '$imgurl', '$dte', '$uid')";
     mysqli_query($link, $sql);
 
-    if (mysqli_query($link, $query1)) {
+    if (mysqli_query($link, $sql)) {
         echo "New record created successfully";
     } else {
-        echo "Error: " . $query1 . "<br>" . mysqli_error($link);
+        echo "Error: " . $sql . "<br>" . mysqli_error($link);
     }
 
     mysqli_close($link);
