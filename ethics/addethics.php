@@ -17,6 +17,8 @@ if (isset($_SESSION['ufname'])) {
             echo $_SESSION['ufname'];
             echo $curdate;
 
+
+
             $sq1 = "INSERT INTO projects (title, description, submissionDate, std_ID)  VALUES ('$ptitle','$pdesc','$psubdate', '$stdId')";
 
 
@@ -99,23 +101,18 @@ if (isset($_SESSION['ufname'])) {
     <span>Submission Date: </span> <?php echo $psubdate; ?>
 </div>
 
-<form class="form-horizontal" action="success.php" method="post">
+<form class="form-horizontal" action="upload.php" method="post">
     <div class="form-group">
-        <label for="ptitle" class="col-md-2 col-md-offset-2 control-label">Title</label>
+        <label for="etitle" class="col-md-2 col-md-offset-2 control-label">Ethics Title</label>
         <div class="col-md-4">
-            <input type="text" name="ptitle" class="form-control" placeholder="Project Title"/>
+            <input type="text" name="etitle" class="form-control" placeholder="Ethics Title"/>
         </div>
     </div>
-    <div class="form-group">
-        <label for="pdesc" class="col-md-2 col-md-offset-2 control-label">Description</label>
-        <div class="col-md-4">
-            <textarea class="form-control" placeholder="Please Enter The Description"></textarea>
-        </div>
-    </div>
+
     <div class="form-group">
         <label for="subdate" class="col-md-2 col-md-offset-2 control-label">Submission Date</label>
         <div class="col-md-4">
-            <input type="date" name="psubdate" class="form-control"/>
+            <input type="date" name="esubdate" class="form-control"/>
         </div>
     </div>
     <div class="form-group">
@@ -125,7 +122,7 @@ if (isset($_SESSION['ufname'])) {
         </div>
 
     </div>
-    <button>Add Suppporting Documents</button>
+
     <button type="submit" class="btn btn-primary ">Add Ethics</button>
 
 </form>

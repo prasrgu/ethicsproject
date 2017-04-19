@@ -98,18 +98,12 @@ else{
 
     </div>
 
-    <fieldset>
-        <h4>Ethics</h4>
-        <div class="form-group">
-            <label for="etfile" class="col-md-2 col-md-offset-2 control-label">Ethics Document</label>
-            <div class="col-md-4">
-                <input type="file" name="etdoc" class="form-control"/>
-            </div>
-        </div>
-    </fieldset>
-<button>Upload supporting document</button>
+
     <button type="submit" class="btn btn-primary ">Add Project</button>
 
 </form>
+
+
+
 </body>
 </html>
