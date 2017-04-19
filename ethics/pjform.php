@@ -75,7 +75,7 @@ else{
     </div><!-- /.container-fluid -->
 </nav>
 
-        <h2 class="col-md-4 col-md-offset-4 down">Add Project</h2>
+        <h2 class="col-md-4 col-md-offset-4 down">Add Project</h2> <br/>
 
 <form class="form-horizontal">
     <div class="form-group">
