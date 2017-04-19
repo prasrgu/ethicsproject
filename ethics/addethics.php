@@ -129,7 +129,7 @@ else{
 
     </div>
     <button>Add Suppporting Documents</button>
-    <button type="submit" value="Add Ethics"></button>
+    <button type="submit"  class = "btn btn-primary btn-block">Add Ethics</button>
 
 </form>
 </body>

@@ -97,7 +97,7 @@ else{
         </div>
 
     </div>
-    <button type="submit">Add Project</button>
+    <button type="submit" class="btn btn-primary btn-block">Add Project</button>
 
 </form>
 </body>
