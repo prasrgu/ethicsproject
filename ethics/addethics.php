@@ -12,7 +12,7 @@ if(isset($_SESSION['ufname'])) {
             $pdesc=$_POST['pdesc'];
             $psubdate=$_POST['psubdate'];
             $stdId = $_SESSION['uid'];
-            $diff= $curdate->diff($psudate)->format("%a");
+
             echo $_SESSION['ufname'];
             echo $_POST['ptitle'];
             if($diff>1){
