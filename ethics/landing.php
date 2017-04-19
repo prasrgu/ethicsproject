@@ -88,13 +88,13 @@ if(isset($_SESSION['ufname'])) {
 
     <div class="container" >
         <div class="row">
-            <div class = "col-md-4 col-md-offset-4">
+            <div class = "col-md-4 col-md-offset-4 space">
                 <span class="cent"> <a>Add Project <i class="fa fa-plus fa-5x"  aria-hidden="true"></i></a></span>
                 <span class="cent"><a>Edit Project <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i></a></span>
 
 
             </div>
-            <div class = "col-md-4 col-md-offset-4">
+            <div class = "col-md-4 col-md-offset-4 space">
                 <span class="cent"> <a>View Projects <i class="fa fa-list fa-5x" aria-hidden="true" ></i></a></span>
                 <span class="cent"><a>Edit Profile <i class="fa fa-wrench fa-5x" aria-hidden="true"></i></a></span>
 
