@@ -122,7 +122,7 @@
                         <input type="password" name="password1" placeholder="Confirm Password" class="form-control"/>
                     </div>
 
-                    <button type="submit" class="btn btn-primary"> Sign up</button>
+                    <button type="submit" class="btn btn-primary btn-block"> Sign up</button>
                 </form>
                 </div>
         </div>

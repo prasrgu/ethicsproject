@@ -18,4 +18,4 @@ if(isset($_SESSION['ufname'])) {
 
 
 ?>
-<h2> Welcome <? echo $_SESSION['firstname']."!<h1>Welcome Prasana</h1>"; ?></h2>
+<h2> Welcome <? echo "Welcome ".$_SESSION['ufname']; ?></h2>
