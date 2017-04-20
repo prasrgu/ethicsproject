@@ -89,7 +89,7 @@ if(isset($_SESSION['ufname'])) {
     <div class="container" >
         <div class="row">
             <div class = "col-md-4 col-md-offset-4 space">
-                <span class="cent"> <a href="addethics.php"><i class="fa fa-plus fa-5x"  aria-hidden="true"></i>New Ethics </a></span>
+                <span class="cent"> <a href="pjform.php"><i class="fa fa-plus fa-5x"  aria-hidden="true"></i>New Ethics </a></span>
                 <span class="cent"><a> <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i>Edit Project</a></span>
 
 
