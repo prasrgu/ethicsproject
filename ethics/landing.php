@@ -30,15 +30,12 @@ if(isset($_SESSION['ufname'])) {
 
     <div class="container" >
         <div class="row">
-            <div class = "col-md-4 col-md-offset-4 space">
-                <span class="cent"> <a href="pjform.php"><i class="fa fa-plus fa-5x"  aria-hidden="true"></i>New Ethics </a></span>
-                <span class="cent"><a> <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i>Edit Project</a></span>
+
+                <span class="col-md-2 col-md-offset-3"> <a href="pjform.php"><i class="fa fa-plus fa-5x"  aria-hidden="true"></i>New Project </a></span>
 
 
-            </div>
-            <div class = "col-md-4 col-md-offset-4 space">
-                <span class="cent"> <a href="projlist.php"><i class="fa fa-list fa-5x" aria-hidden="true" ></i>View Projects </a></span>
-                <span class="cent"><a> <i class="fa fa-wrench fa-5x" aria-hidden="true"></i>Edit Profile</a></span>
+                <span class="col-md-2 "> <a href="projlist.php"><i class="fa fa-list fa-5x" aria-hidden="true" ></i>View Projects </a></span>
+                <span class="col-md-2 "><a> <i class="fa fa-wrench fa-5x" aria-hidden="true"></i>Edit Profile</a></span>
 
 
             </div>

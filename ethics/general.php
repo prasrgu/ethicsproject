@@ -36,22 +36,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">E-Review</a>
+            <a class="navbar-brand" href="landing.php">E-Review</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="landing.php">Home<span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Profile</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Projects <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">New Ethics</a></li>
+                        <li><a href="pjform.php">New Project</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Edit Project</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">View Projects</a></li>
+                        <li><a href="projlist.php">View Projects</a></li>
 
 
                     </ul>
