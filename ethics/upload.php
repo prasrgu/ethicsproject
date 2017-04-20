@@ -26,7 +26,7 @@ if (($imgSize < 11048576) && !empty($et) && !empty($epto)){
     move_uploaded_file($tmp_dir, $fold .$ud. $imgFile);
     $imgurl = $fold . $dest;
 
-    $sql = "INSERT INTO ethics VALUES('$et', '$imgurl', '$dte', '$uid')";
+    $sql = "INSERT INTO ethics(title, url_location, submissionDate, student_ID) VALUES('$et', '$imgurl', '$dte', '$uid')";
     mysqli_query($link, $sql);
 
     if (mysqli_query($link, $sql)) {
