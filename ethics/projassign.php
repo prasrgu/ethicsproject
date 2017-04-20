@@ -66,7 +66,7 @@ $std_ID = $_GET['sid'];
                     var values = $('#mul').val();
                     return values;
                     <?php
-                            $val=values;
+                            $val ?>=values;<?
                     header('location: eaoass.php?v='.$val)?>
                 }
         </script>
