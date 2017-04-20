@@ -32,11 +32,33 @@ $std_ID = $_GET['sid'];
 
 </head>
 <body>
+            <h2>Assign Experimental Approval Officer (EAO)</h2>
         <?php
-                echo "Hello World";
+               $sst = "SELECT * FROM projects WHERE id= '$proj_ID'";
+              $sedde= mysqli_query($link, $sst);
 
-
+                $deta=mysqli_fetch_assoc($sedde);
+                echo "<h3>". "Project Title:  ".$deta['title']."</h3>";
+                echo "<h3>"."Description: ".$deta['description']."</h3>";
+                echo "<h3>"."Submission Date: ".$deta['submissionDate']."</h3>";
         ?>
+            <form method="post">
+                <label for="eao">Select EAO
+                <select name="eao" multiple>
+                   <?php $sdsf= "SELECT firstname, lastname,staff_ID FROM staff WHERE role = 'EAO'";
+                            $mines=mysqli_query($link, $sdsf);
+                            if(mysqli_num_rows($mines)>0){
+                                while($restless=mysqli_fetch_assoc($mines)){
+                                        echo "<option value='{$restless['staff_ID']}'>".$restless['firstname']. "  ".$restless['lastname']."</option>";
+                                }
+                            }
+                   ?>
+                </select>
+                </label>
+            </form>
+
+
+            </form>
 
 
 
