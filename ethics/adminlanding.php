@@ -20,3 +20,6 @@ include('connection.php');
         }
         echo "</tbody></table>";
         }
+        else{
+            echo "There are no student projects at the moment. Please check back later";
+        }
