@@ -19,7 +19,7 @@
                 <div class="col-md-4">
                     <input type="file" name="etfile" class="form-control"/>
                 </div>
-                <button type="submit">Update</button>
+                <button type="submit" class="btn btn-primary">Update</button>
         </form>
     <?php }
     elseif($diff<1){
