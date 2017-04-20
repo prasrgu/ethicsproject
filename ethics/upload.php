@@ -26,7 +26,7 @@ if (isset($_SESSION['ufname'])) {
 
         if (($imgSize < 1048576) && !empty($et) && !empty($epto)) {
             $ext = substr(strrchr($imgFile, "."), 1);
-            if (!strcmp($ext, "doc") && !strcmp($ext, "docx") && !strcmp($ext, "pdf")) {
+            if (!strcmp($ext, ".doc") && !strcmp($ext, ".docx") && !strcmp($ext, ".pdf")) {
                 move_uploaded_file($tmp_dir, $fold . $dest);
                 $imgurl = $fold . $dest;
 
