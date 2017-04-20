@@ -26,11 +26,11 @@ if (isset($_SESSION['ufname'])) {
 
             if (($imgSize < 1048576) && !empty($et) && !empty($epto)) {
                 $ext = substr(strrchr($imgFile, "."), 1);
-                echo "hello world";
-                echo $ext;
-                echo "hello world";
 
-          /*      if (strcmp($ext, "doc")!=0 && strcmp($ext, "docx") !=0 && strcmp($ext, "pdf")!=0 ) {
+                echo $ext;
+
+
+             if (($ext=="doc")||($ext=="docx")||($ext=="pdf")) {
                     move_uploaded_file($tmp_dir, $fold . $dest);
                     $imgurl = $fold . $dest;
 
@@ -48,7 +48,7 @@ if (isset($_SESSION['ufname'])) {
                     $_SESSION['fformat'] = "Invalid File Format";
                     header('location: addethics.php');
                 }
-          */
+
             }else {
                 $_SESSION['large'] = "File too Large";
                 header('location: addethics.php');
