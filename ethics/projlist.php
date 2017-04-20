@@ -85,7 +85,7 @@ else{
         <tr>
             <th>Title</th>
             <th>Submission Date</th>
-            <th>Ethics Title</th>
+
         </tr>
         </thead>
         <tbody>
@@ -93,14 +93,9 @@ else{
                 <?php $sq2 = "SELECT * FROM projects WHERE std_ID='{$_SESSION['uid']}'" ;
                          $reso =   mysqli_query($link, $sq2);
                          while ($rowen = mysqli_fetch_assoc($reso)){
-                             $sqq = "SELECT title FROM ethics WHERE id='{$rowen['ethicsForm_ID ']}'";
-                             $rest=mysqli_query($link, $sqq);
-                             if(mysqli_num_rows($rest)==1) {
-                                $ree= mysqli_fetch_assoc($rest);
-                                 echo "<tr><td>" . $rowen['title'] . "</td><td>" . $rowen['submissionDate'] . "</td><td>" .$ree['title']."</td></tr>";
-                                 }else{
-                                     echo "<tr><td>" . $rowen['title'] . "</td><td>" . $rowen['submissionDate'] . "</td><td>" .'null'."</td></tr>";
-                                 }
+
+                                 echo "<tr><td>" . $rowen['title'] . "</td><td>" . $rowen['submissionDate'] . "</td></tr>";
+
                          }
 
                 ?>
