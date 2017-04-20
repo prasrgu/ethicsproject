@@ -16,6 +16,7 @@ include('connection.php');
             $dse = "SELECT * FROM  student WHERE student_ID='{$resu['std_ID']}'";
                     $fds=mysqli_query($link, $dse);
                    $svd= mysqli_fetch_assoc($fds);
-            echo "<tr><td>" . "<a href='projdet.php?p={$resu['id']}&sid={$resu['std_ID']}'>". $svd['firstname'] . "  ".$svd['lastname'] . "</a>". "</td><td>" . $svd['student_ID'] . "</td><td>" . $resu['id'] . "</td></tr>";
+            echo "<tr><td>" . "<a href='projdet.php?p={$resu['id']}&sid={$resu['std_ID']}'>". $svd['firstname'] . "  ".$svd['lastname'] . "</a>". "</td><td>" . $svd['student_ID'] . "</td><td>" . $resu['title'] . "</td></tr>";
         }
+        echo "</tbody></table>";
         }
