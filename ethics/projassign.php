@@ -42,9 +42,9 @@ $std_ID = $_GET['sid'];
                 echo "<h3>"."Description: ".$deta['description']."</h3>";
                 echo "<h3>"."Submission Date: ".$deta['submissionDate']."</h3>";
         ?>
-            <form method="post">
+            <form method="post" action="eaoass.php" class="form-horizontal">
                 <label for="eao">Select EAO
-                <select name="eao" multiple>
+                <select name="eao"  class="form-control" multiple>
                    <?php $sdsf= "SELECT firstname, lastname,staff_ID FROM staff WHERE role = 'EAO'";
                             $mines=mysqli_query($link, $sdsf);
                             if(mysqli_num_rows($mines)>0){
@@ -55,6 +55,7 @@ $std_ID = $_GET['sid'];
                    ?>
                 </select>
                 </label>
+            <button type="submit"></button>
             </form>
 
 
