@@ -44,7 +44,7 @@ $std_ID = $_GET['sid'];
         ?>
             <form method="post" action="eaoass.php" class="form-horizontal col-md-5 col-md-offset-4">
                 <label for="eao">Select EAO
-                <select name="eao"  class="form-control" multiple>
+                <select name="eao"  id="mul" class="form-control" multiple>
                    <?php $sdsf= "SELECT firstname, lastname,staff_ID FROM staff WHERE role = 'EAO'";
                             $mines=mysqli_query($link, $sdsf);
                             if(mysqli_num_rows($mines)>0){
@@ -55,12 +55,17 @@ $std_ID = $_GET['sid'];
                    ?>
                 </select>
                 </label>
-            <button type="submit" class="btn btn-primary">Assign</button>
+            <button type="submit" class="btn btn-primary" onclick="fs();">Assign</button>
             </form>
 
 
             </form>
-
+        <script>
+                function fs (){
+                    var values = $('#mul').val();
+                    return values;
+                }
+        </script>
 
 
 </body>
