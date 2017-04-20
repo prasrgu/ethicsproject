@@ -51,13 +51,13 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a onclick="<?php
+                <li><button onclick="<?php
 
 
                     unset($_SESSION);
                     session_destroy();
                     header('location:index.php');
-                    ?>">Logout</a></li>
+                    ?>">Logout</button></li>
 
             </ul>
         </div><!-- /.navbar-collapse -->
