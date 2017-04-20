@@ -42,7 +42,7 @@ $std_ID = $_GET['sid'];
                 echo "<h3>"."Description: ".$deta['description']."</h3>";
                 echo "<h3>"."Submission Date: ".$deta['submissionDate']."</h3>";
         ?>
-            <form method="post" action="eaoass.php" class="form-horizontal">
+            <form method="post" action="eaoass.php" class="form-horizontal col-md-5 col-md-offset-4">
                 <label for="eao">Select EAO
                 <select name="eao"  class="form-control" multiple>
                    <?php $sdsf= "SELECT firstname, lastname,staff_ID FROM staff WHERE role = 'EAO'";
@@ -55,7 +55,7 @@ $std_ID = $_GET['sid'];
                    ?>
                 </select>
                 </label>
-            <button type="submit"></button>
+            <button type="submit" class="btn btn-primary">Assign</button>
             </form>
 
 
