@@ -42,7 +42,7 @@ if (isset($_SESSION['ufname'])) {
                    $val= mysqli_fetch_assoc($rowsss);
                    $var=$val['id'];
 
-                 $sq2 = "INSERT INTO projects (title, description, submissionDate, std_ID, ethics_form_ID)  VALUES ('$et', '$imgurl', '$dte', '$uid','$var')";
+                 $sq2 = "INSERT INTO projects (title, description, submissionDate, std_ID, ethics_form_ID)  VALUES ('$et', '$desc', '$dte', '$uid','$var')";
                  mysqli_query($link, $sq2);
 
                     mysqli_close($link);
