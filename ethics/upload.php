@@ -59,7 +59,8 @@ if (isset($_SESSION['ufname'])) {
     }
     if (substr($_SESSION['uid'], 0, 1) == 'A') {
 
-   // }
-} else{
+   }
+//}
+else{
     header('location:index.php');
 }
