@@ -40,7 +40,13 @@
             </div>
 
             <button type="submit" class="btn btn-primary btn-block"> Log in</button>
+
         </form>
+                <?php session_start();
+                if(isset($_SESSION['logged'])){
+                    echo "Thanks For Using Our System";
+                }
+                ?>
          </div>
         </div>
 
