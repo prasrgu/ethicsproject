@@ -53,10 +53,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><span onclick="<?php
 
-                     session_start();
-                    unset($_SESSION);
-                  session_destroy();
-                      header('location:index.php');
+
                     ?>">Logout</span></li>
 
             </ul>
