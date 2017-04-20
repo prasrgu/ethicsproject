@@ -56,6 +56,7 @@ $std_ID = $_GET['sid'];
                 </select>
                 </label>
             <button type="submit" class="btn btn-primary" onclick="fs();">Assign</button>
+                fs();
             </form>
 
 
