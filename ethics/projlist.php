@@ -6,6 +6,7 @@
  * Time: 02:23
  */
 session_start();
+include ('connection.php');
 if(isset($_SESSION['ufname'])) {
 
 
