@@ -55,7 +55,7 @@ $std_ID = $_GET['sid'];
                    ?>
                 </select>
                 </label>
-            <button type="submit" class="btn btn-primary" onclick="vs=fs();">Assign</button>
+            <button type="submit" class="btn btn-primary" onclick="fs();">Assign</button>
 
             </form>
 
@@ -65,9 +65,7 @@ $std_ID = $_GET['sid'];
                 function fs (){
                     var values = $('#mul').val();
                     return values;
-                    <?php
-                            $val ?>=values;<?
-                    header('location: eaoass.php?v='.$val)?>
+                    location.href = "eaoass.php?v="+values;
                 }
         </script>
 
