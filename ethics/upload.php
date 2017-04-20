@@ -7,37 +7,58 @@
  */
 session_start();
 include('connection.php');
+if (isset($_SESSION['ufname'])) {
+    if (substr($_SESSION['uid'], 0, 1) == 'S' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $fold = "../wwwroot/";
+        $uid = $_SESSION['uid'];
+        $ud = $uid . "/";
+        echo print_r($_FILES['etdoc']);
+        $imgFile = $_FILES['etdoc']['name'];
+        $tmp_dir = $_FILES['etdoc']['tmp_name'];
+        $imgSize = $_FILES['etdoc']['size'];
 
+        $et = $_POST['etitle'];
+        $epto = $_POST['esubdate'];
+        $dest = $ud . $et;
+        $dte = $_POST['esubdate'];
 
-    $fold="../wwwroot/";
-    $uid = $_SESSION['uid'];
-    $ud = $uid."/";
-    echo print_r($_FILES['etdoc']);
-    $imgFile = $_FILES['etdoc']['name'];
-    $tmp_dir = $_FILES['etdoc']['tmp_name'];
-    $imgSize = $_FILES['etdoc']['size'];
+        $valid_extensions = array('doc', 'docx', 'pdf');
 
-    $et = $_POST['etitle'];
-    $epto= $_POST['esubdate'];
-    $dest =$ud. $et;
-    $dte = $_POST['esubdate'];
+        if (($imgSize < 1048576) && !empty($et) && !empty($epto)) {
+            $ext = substr(strrchr($imgFile, "."), 1);
+            if (!strcmp($ext, "doc") && !strcmp($ext, "docx") && !strcmp($ext, "pdf")) {
+                move_uploaded_file($tmp_dir, $fold . $dest);
+                $imgurl = $fold . $dest;
 
-$valid_extensions = array('doc', 'docx', 'pdf');
+                $sql = "INSERT INTO ethics(title, url_location, submissionDate, student_ID) VALUES('$et', '$imgurl', '$dte', '$uid')";
+                mysqli_query($link, $sql);
 
-if (($imgSize < 1048576) && !empty($et) && !empty($epto)){
-    move_uploaded_file($tmp_dir, $fold .$dest);
-    $imgurl = $fold . $dest;
+                if (mysqli_query($link, $sql)) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $sql . "<br>" . mysqli_error($link);
+                }
 
-    $sql = "INSERT INTO ethics(title, url_location, submissionDate, student_ID) VALUES('$et', '$imgurl', '$dte', '$uid')";
-    mysqli_query($link, $sql);
+                mysqli_close($link);
 
-    if (mysqli_query($link, $sql)) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($link);
+            } else {
+                $_SESSION['fformat'] = "Invalid File Format";
+                header('location: addethics.php');
+            }
+        } else {
+            $_SESSION['large'] = "File too Large";
+            header('location: addethics.php');
+        }
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+            header('location: landing.php');
     }
+    if (substr($_SESSION['uid'], 0, 1) == 'E' ){
 
-    mysqli_close($link);
+    }
+    if (substr($_SESSION['uid'], 0, 1) == 'A') {
 
-
+    }
+} else{
+    header('location:index.php');
 }

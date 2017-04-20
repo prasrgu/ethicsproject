@@ -1,26 +1,21 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 1613112
- * Date: 12/04/2017
- * Time: 16:06
+ * User: AP1
+ * Date: 20/04/2017
+ * Time: 02:23
  */
-    session_start();
+session_start();
 if(isset($_SESSION['ufname'])) {
 
 
 
 }
-    
-    else{
-        header ('location : index.php');
-    }
 
-
+else{
+    header ('location : index.php');
+}
 ?>
-
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -84,30 +79,31 @@ if(isset($_SESSION['ufname'])) {
         </div><!-- /.container-fluid -->
     </nav>
 
-    <h2> <? echo "Welcome ".$_SESSION['ufname']; ?></h2>
 
-    <div class="container" >
-        <div class="row">
-            <div class = "col-md-4 col-md-offset-4 space">
-                <span class="cent"> <a href="pjform.php"><i class="fa fa-plus fa-5x"  aria-hidden="true"></i>Add Project </a></span>
-                <span class="cent"><a> <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i>Edit Project</a></span>
+    <table class="table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Submission Date</th>
+            <th>Ethics Title</th>
+        </tr>
+        </thead>
+        <tbody>
 
+                <?php $sq2 = "SELECT * FROM projects WHERE std_ID='{$_SESSION['uid']}'" ;
+                         $reso =   mysqli_query($link, $sq2);
+                         while ($rowen = mysqli_fetch_assoc($reso)){
+                             $sqq = "SELECT title FROM ethics WHERE id='{$rowen['ethicsForm_ID ']}'";
+                             $rest=mysqli_query($link, $sqq);
+                             if(mysqli_num_rows($rest)==1) {
+                                $ree= mysqli_fetch_assoc($rest);
+                                 echo "<tr><td>" . $rowen['title'] . "</td><td>" . $rowen['submissionDate'] . "</td><td>" .$ree['title']."</td></tr>";
+                                 }else{
+                                     echo "<tr><td>" . $rowen['title'] . "</td><td>" . $rowen['submissionDate'] . "</td><td>" .'null'."</td></tr>";
+                                 }
+                         }
 
-            </div>
-            <div class = "col-md-4 col-md-offset-4 space">
-                <span class="cent"> <a href="projlist.php"><i class="fa fa-list fa-5x" aria-hidden="true" ></i>View Projects </a></span>
-                <span class="cent"><a> <i class="fa fa-wrench fa-5x" aria-hidden="true"></i>Edit Profile</a></span>
+                ?>
 
-
-            </div>
-        </div>
-    </div>
-
-    </body>
-
-
-
-
-
-
-</html>
+        </tbody>
+    </table>

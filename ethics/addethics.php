@@ -1,6 +1,14 @@
 <?php
 session_start();
 include('connection.php');
+if(isset($_SESSION['fformat'])){
+    echo $_SESSION['fformat'];
+    unset($_SESSION['fformat']);
+}
+if(isset($_SESSION['large'])){
+    echo $_SESSION['large'];
+    unset($_SESSION['large']);
+}
 
 if (isset($_SESSION['ufname'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
