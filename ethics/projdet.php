@@ -25,7 +25,7 @@ if(isset($_SESSION['ufname'])) {
 
     <?
         include ('fdetails.php');}
-    else{
+    elseif($_SERVER['REQUEST_METHOD']==='POST'){
         if (substr($_SESSION['uid'], 0, 1) === 'S') {
             $fold = "../wwwroot/";
             $uid = $_SESSION['uid'];
