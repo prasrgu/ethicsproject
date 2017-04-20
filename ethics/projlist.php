@@ -17,8 +17,7 @@ else{
     header ('location : index.php');
 }
 ?>
-<!DOCTYPE html>
-<html>
+
   <?php include('general.php'); ?>
 
 
@@ -36,7 +35,7 @@ else{
                          $reso =   mysqli_query($link, $sq2);
                          while ($rowen = mysqli_fetch_assoc($reso)){
 
-                                 echo "<tr><td>" . $rowen['title'] . "</td><td>" . $rowen['submissionDate'] . "</td></tr>";
+                                 echo "<tr><td>" . "<a href='projdet.php?p={$rowen['id']}'>". $rowen['title'] ."</a>". "</td><td>" . $rowen['submissionDate'] . "</td></tr>";
 
                          }
 

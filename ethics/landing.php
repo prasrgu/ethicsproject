@@ -18,14 +18,7 @@ if(isset($_SESSION['ufname'])) {
 
 
 ?>
-
-
-
-<!DOCTYPE html>
-<html>
-
-
-        <?php include ('general.php'); ?>
+ <?php include ('general.php'); ?>
     <h2> <? echo "Welcome ".$_SESSION['ufname']; ?></h2>
 
     <div class="container" >

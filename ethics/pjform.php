@@ -12,8 +12,7 @@ else{
 
 
 ?>
-<!DOCTYPE html>
-<html>
+
 <?php include('general.php')?>
 
         <h2 class="col-md-4 col-md-offset-4 down">Add Ethics</h2> <br/>

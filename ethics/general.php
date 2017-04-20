@@ -1,11 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: AP1
- * Date: 20/04/2017
- * Time: 12:17
- */
-?>
+<!DOCTYPE html>
+<html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 
