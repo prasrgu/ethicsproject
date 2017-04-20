@@ -26,7 +26,7 @@ if (isset($_SESSION['ufname'])) {
             $valid_extensions = array('doc', 'docx', 'pdf');
             if (($imgSize < 1048576) && !empty($et) && !empty($epto)) {
                 $ext = substr(strrchr($imgFile, "."), 1);
-                echo $ext;
+                print_r(strcmp($ext, "doc"));
                 if (strcmp($ext, "doc")!=0 && strcmp($ext, "docx") !=0 && strcmp($ext, "pdf")!=0 ) {
                     move_uploaded_file($tmp_dir, $fold . $dest);
                     $imgurl = $fold . $dest;
@@ -59,7 +59,7 @@ if (isset($_SESSION['ufname'])) {
 
         }
         else{
-            include ('unauthorized.php');
+                include ('unauthorized.php');
         }
 
     }
