@@ -80,7 +80,7 @@ else{
     </nav>
 
 
-    <table class="table-striped">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Title</th>
