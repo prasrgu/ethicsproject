@@ -8,5 +8,5 @@
 session_start();
 unset($_SESSION);
 session_destroy();
-$_SESSION['logged']="ds";
+
 header('location: index.php');
