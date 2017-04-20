@@ -56,7 +56,7 @@ else{
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Projects <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Add Project</a></li>
+                        <li><a href="#">Add Ethics</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Edit Project</a></li>
                         <li role="separator" class="divider"></li>
@@ -75,9 +75,9 @@ else{
     </div><!-- /.container-fluid -->
 </nav>
 
-        <h2 class="col-md-4 col-md-offset-4 down">Add Project</h2> <br/>
+        <h2 class="col-md-4 col-md-offset-4 down">Add Ethics</h2> <br/>
 
-<form class="form-horizontal" action="addethics.php" method="post">
+<form class="form-horizontal" action="upload.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="ptitle" class="col-md-2 col-md-offset-2 control-label">Project Title</label>
         <div class="col-md-4">
@@ -94,6 +94,13 @@ else{
         <label for="subdate" class="col-md-2 col-md-offset-2 control-label" >Submission Date</label>
         <div class="col-md-4">
             <input type="date" name="psubdate"  class="form-control"/>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="etfile" class="col-md-2 col-md-offset-2 control-label">Ethics Document</label>
+        <div class="col-md-4">
+            <input type="file" name="etdoc" class="form-control"/>
         </div>
 
     </div>

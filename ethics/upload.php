@@ -18,10 +18,11 @@ if (isset($_SESSION['ufname'])) {
             $tmp_dir = $_FILES['etdoc']['tmp_name'];
             $imgSize = $_FILES['etdoc']['size'];
 
-            $et = $_POST['etitle'];
-            $epto = $_POST['esubdate'];
+            $et = $_POST['ptitle'];
+            $epto = $_POST['psubdate'];
             $dest = $ud . $et;
-            $dte = $_POST['esubdate'];
+            $desc = $_POST['pdesc'];
+            $dte = $_POST['psubdate'];
 
 
             if (($imgSize < 1048576) && !empty($et) && !empty($epto)) {
@@ -36,11 +37,13 @@ if (isset($_SESSION['ufname'])) {
 
                     $sql = "INSERT INTO ethics(title, url_location, submissionDate, student_ID) VALUES('$et', '$imgurl', '$dte', '$uid')";
                     mysqli_query($link, $sql);
-                    if (mysqli_query($link, $sql)) {
-                        echo "New record created successfully";
-                    } else {
-                        echo "Error: " . $sql . "<br>" . mysqli_error($link);
-                    }
+                    $sqt = "SELECT * FROM ethics WHERE student_ID='$uid' AND url_location='$imgurl'";
+                    $rowsss= mysqli_query($link, $sqt);
+                   $val= mysqli_fetch_assoc($rowsss);
+                   $var=$val['id'];
+
+                 $sq2 = "INSERT INTO projects (title, description, submissionDate, std_ID, ethics_form_ID)  VALUES ('$et', '$imgurl', '$dte', '$uid','$var')";
+                 mysqli_query($link, $sq2);
 
                     mysqli_close($link);
 

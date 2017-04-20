@@ -1,14 +1,6 @@
 <?php
 session_start();
 include('connection.php');
-if(isset($_SESSION['fformat'])){
-    echo $_SESSION['fformat'];
-    unset($_SESSION['fformat']);
-}
-if(isset($_SESSION['large'])){
-    echo $_SESSION['large'];
-    unset($_SESSION['large']);
-}
 
 if (isset($_SESSION['ufname'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -22,8 +14,8 @@ if (isset($_SESSION['ufname'])) {
             $stdId = $_SESSION['uid'];
 
 
-            echo $_SESSION['ufname'];
-            echo $curdate;
+
+
 
 
 
@@ -109,30 +101,5 @@ if (isset($_SESSION['ufname'])) {
     <span>Submission Date: </span> <?php echo $psubdate; ?>
 </div>
 
-<form class="form-horizontal" action="upload.php" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="etitle" class="col-md-2 col-md-offset-2 control-label">Ethics Title</label>
-        <div class="col-md-4">
-            <input type="text" name="etitle" class="form-control" placeholder="Ethics Title"/>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="subdate" class="col-md-2 col-md-offset-2 control-label">Submission Date</label>
-        <div class="col-md-4">
-            <input type="date" name="esubdate" class="form-control"/>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="etfile" class="col-md-2 col-md-offset-2 control-label">Ethics Document</label>
-        <div class="col-md-4">
-            <input type="file" name="etdoc" class="form-control"/>
-        </div>
-
-    </div>
-
-    <button type="submit" class="btn btn-primary ">Add Ethics</button>
-
-</form>
 </body>
 </html>

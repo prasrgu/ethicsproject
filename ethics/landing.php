@@ -65,7 +65,7 @@ if(isset($_SESSION['ufname'])) {
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Projects <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Add Project</a></li>
+                            <li><a href="#">New Ethics</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Edit Project</a></li>
                             <li role="separator" class="divider"></li>
@@ -89,7 +89,7 @@ if(isset($_SESSION['ufname'])) {
     <div class="container" >
         <div class="row">
             <div class = "col-md-4 col-md-offset-4 space">
-                <span class="cent"> <a href="pjform.php"><i class="fa fa-plus fa-5x"  aria-hidden="true"></i>Add Project </a></span>
+                <span class="cent"> <a href="upload.php"><i class="fa fa-plus fa-5x"  aria-hidden="true"></i>New Ethics </a></span>
                 <span class="cent"><a> <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i>Edit Project</a></span>
 
 
