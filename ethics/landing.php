@@ -23,8 +23,8 @@ if(isset($_SESSION['ufname'])) {
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Dashboard</title>
+
+
         <?php include ('general.php'); ?>
     <h2> <? echo "Welcome ".$_SESSION['ufname']; ?></h2>
 

@@ -6,6 +6,7 @@
  * Time: 12:17
  */
 ?>
+<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 
 <!-- Optional theme -->
