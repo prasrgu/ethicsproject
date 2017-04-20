@@ -55,19 +55,13 @@ $std_ID = $_GET['sid'];
                    ?>
                 </select>
                 </label>
-            <button type="submit" class="btn btn-primary" onclick=" location.href = "eaoass.php?v=fdghj">Assign</button>
+            <button type="submit" class="btn btn-primary">Assign</button>
 
             </form>
 
 
-            </form>
-        <script>
-                function fs (){
-                    var values = $('#mul').val();
-                    return values;
-                    location.href = "eaoass.php?v="+values;
-                }
-        </script>
+
+
 
 
 </body>
