@@ -55,7 +55,7 @@ $std_ID = $_GET['sid'];
                    ?>
                 </select>
                 </label>
-            <button type="submit" class="btn btn-primary" onclick="fs();">Assign</button>
+            <button type="submit" class="btn btn-primary" onclick=" location.href = "eaoass.php?v=fdghj">Assign</button>
 
             </form>
 
