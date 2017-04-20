@@ -54,6 +54,9 @@
                 <li><span onclick="<?php
 
 
+                    unset($_SESSION);
+                    session_destroy();
+                    header('location:index.php');
                     ?>">Logout</span></li>
 
             </ul>
