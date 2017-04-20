@@ -37,12 +37,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
            $_SESSION['uemail'] = $row['email'];
           if($checker==0) {
               $_SESSION['uid'] = $row['student_ID'];
+              header('location: landing.php');
+              exit;
           }
           else{
-              $_SESSION['uid'] = $row['staff_ID'];
+              if($row['role']==='EAO') {
+                  $_SESSION['uid'] = $row['staff_ID'];
+                  header('location: eaolanding.php');
+                  exit;
+              }else{
+                  $_SESSION['uid'] = $row['staff_ID'];
+                  header('location: adminlanding.php');
+                  exit;
+              }
+
           }
-            header('location: landing.php');
-            exit;
+
         }
         else{
             echo "Incorrect Password";
