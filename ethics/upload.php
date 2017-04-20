@@ -16,16 +16,17 @@ include('connection.php');
     $imgFile = $_FILES['etdoc']['name'];
     $tmp_dir = $_FILES['etdoc']['tmp_name'];
     $imgSize = $_FILES['etdoc']['size'];
-    $dest =$ud. $imgFile;
+
     $et = $_POST['etitle'];
     $epto= $_POST['esubdate'];
+    $dest =$ud. $et;
     $dte = $_POST['esubdate'];
 
 $valid_extensions = array('doc', 'docx', 'pdf');
 
-if (($imgSize < 11048576) && !empty($et) && !empty($epto)){
-    move_uploaded_file($tmp_dir, $fold .$ud. $et);
-    $imgurl = $fold . $et;
+if (($imgSize < 1048576) && !empty($et) && !empty($epto)){
+    move_uploaded_file($tmp_dir, $fold .$dest);
+    $imgurl = $fold . $dest;
 
     $sql = "INSERT INTO ethics(title, url_location, submissionDate, student_ID) VALUES('$et', '$imgurl', '$dte', '$uid')";
     mysqli_query($link, $sql);
