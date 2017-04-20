@@ -101,7 +101,7 @@ if (isset($_SESSION['ufname'])) {
     <span>Submission Date: </span> <?php echo $psubdate; ?>
 </div>
 
-<form class="form-horizontal" action="upload.php" method="post">
+<form class="form-horizontal" action="upload.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="etitle" class="col-md-2 col-md-offset-2 control-label">Ethics Title</label>
         <div class="col-md-4">

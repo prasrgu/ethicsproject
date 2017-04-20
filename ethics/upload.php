@@ -12,6 +12,7 @@ include('connection.php');
     $fold="../wwwroot/";
     $uid = $_SESSION['uid'];
     $ud = $uid."/";
+    echo print_r($_FILES['etdoc']);
     $imgFile = $_FILES['etdoc']['name'];
     $tmp_dir = $_FILES['etdoc']['tmp_name'];
     $imgSize = $_FILES['etdoc']['size'];
@@ -23,8 +24,8 @@ include('connection.php');
 $valid_extensions = array('doc', 'docx', 'pdf');
 
 if (($imgSize < 11048576) && !empty($et) && !empty($epto)){
-    move_uploaded_file($tmp_dir, $fold .$ud. $imgFile);
-    $imgurl = $fold . $dest;
+    move_uploaded_file($tmp_dir, $fold .$ud. $et);
+    $imgurl = $fold . $et;
 
     $sql = "INSERT INTO ethics(title, url_location, submissionDate, student_ID) VALUES('$et', '$imgurl', '$dte', '$uid')";
     mysqli_query($link, $sql);
