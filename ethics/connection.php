@@ -2,9 +2,7 @@
 /**
  * Created by PhpStorm.
  * User: 1613112
- * Date: 07/04/2017
- * Time: 12:52
- */
+  */
 $connectstr_dbhost = '';
 $connectstr_dbname = '';
 $connectstr_dbusername = '';
