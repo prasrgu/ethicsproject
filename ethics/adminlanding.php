@@ -30,7 +30,7 @@ include('connection.php');
 <body>
 <?php
 ?>
-<button location.href="logout.php">Logout</button>
+<a href="logout.php">Logout</a>
 
 <?
         $sqqq ="SELECT * FROM projects WHERE id NOT IN ( SELECT projID FROM staff_proj) ";
