@@ -12,12 +12,12 @@ $fvd=$_GET['projId'];
 //echo $sdv;
 $Query = explode('&', explode("?", $_SERVER['REQUEST_URI'])[1]);
 
-//echo substr($Query[1],4);
-//echo substr($Query[0],7);
-//echo substr($Query[2],4);
+$s1= substr($Query[1],4);
+$s0= substr($Query[0],7);
+$s2= substr($Query[2],4);
 if( count($Query)==3){
-   $xcb="INSERT INTO staff_proj VALUES (substr($Query[1],4),substr($Query[0],7))";
-   $aghd = "INSERT INTO staff_proj VALUES (substr($Query[2],4),substr($Query[0],7))";
+   $xcb="INSERT INTO staff_proj VALUES ('$s1','$s0')";
+   $aghd = "INSERT INTO staff_proj VALUES ('$s2','$s0')";
     if (mysqli_query($link, $aghd)) {
         echo "New record created successfully";
         header('location : success.php');
@@ -34,7 +34,7 @@ if( count($Query)==3){
 
 }
 elseif(count($Query)==2) {
-     $xcb2="INSERT INTO staff_proj VALUES (substr($Query[1],4),substr($Query[0],7))";
+     $xcb2="INSERT INTO staff_proj VALUES ('$s1','$s0')";
     if (mysqli_query($link, $xcb2)) {
         echo "New record created successfully";
         header('location : success.php');
