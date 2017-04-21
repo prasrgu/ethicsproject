@@ -52,7 +52,9 @@ $assign = $_GET['as'];
 <body>
             <h2>Assign Experimental Approval Officer (EAO)</h2>
         <?php
-
+            if(isset($_SESSION['stvs'])){
+                echo "<p>".$_SESSION['stvs']."</p>";
+            }
                $sst = "SELECT * FROM projects WHERE id= '$proj_ID'";
               $sedde= mysqli_query($link, $sst);
 
