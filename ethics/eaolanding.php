@@ -47,4 +47,6 @@ if(isset($_SESSION['uid'])) {
         <?php
         }
 
-            }
+            }else{
+            header('location : index.php');
+}
