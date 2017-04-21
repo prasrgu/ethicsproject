@@ -8,3 +8,5 @@
 
 $e1=$_GET['eao'];
 $fvd=$_GET['projId'];
+
+print_r($_GET);
