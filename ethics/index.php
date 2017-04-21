@@ -42,6 +42,7 @@
             <button type="submit" class="btn btn-primary btn-block"> Log in</button>
 
         </form>
+                <p>Need An Account? <a href="register.php">Sign up</a></p>
 
          </div>
         </div>

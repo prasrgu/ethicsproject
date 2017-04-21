@@ -124,6 +124,7 @@
 
                     <button type="submit" class="btn btn-primary btn-block"> Sign up</button>
                 </form>
+                    <p>Already have an Account? <a href="index.php">Sign in</a></p>
                 </div>
         </div>
         </div>
