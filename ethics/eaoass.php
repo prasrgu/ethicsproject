@@ -6,3 +6,5 @@
  * Time: 23:11
  */
 
+$e1=$_GET['eao'];
+$fvd=$_GET['projId'];
