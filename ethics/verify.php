@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: 1613112
- * Date: 12/04/2017
- * Time: 17:57
  */
 include('connection.php');
 if($_SERVER['REQUEST_METHOD'] === 'POST'){

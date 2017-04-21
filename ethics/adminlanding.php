@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: AP1
- * Date: 20/04/2017
- * Time: 16:38
  */
 
 include('connection.php');
@@ -31,6 +29,10 @@ include('connection.php');
 </head>
 <body>
 <?php
+?>
+<button location.href="logout.php">Logout</button>
+
+<?
         $sqqq ="SELECT * FROM projects WHERE id NOT IN ( SELECT projID FROM staff_proj) ";
        $answe= mysqli_query($link, $sqqq);
         echo "<table class='table table-striped'><thead><tr><td>Student Name</td><td>Student ID</td> <td>Project Title</td></tr></thead><tbody>";

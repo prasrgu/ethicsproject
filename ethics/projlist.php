@@ -2,9 +2,7 @@
 /**
  * Created by PhpStorm.
  * User: AP1
- * Date: 20/04/2017
- * Time: 02:23
- */
+  */
 session_start();
 include ('connection.php');
 if(isset($_SESSION['ufname'])) {
