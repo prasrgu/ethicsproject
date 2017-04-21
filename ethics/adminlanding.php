@@ -59,7 +59,7 @@ include('connection.php');
             }
 
         }
-        echo "</tbody></table>";
+        echo "</tbody></table>";?>
 
 </body>
 </html>
