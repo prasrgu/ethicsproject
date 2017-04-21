@@ -8,5 +8,6 @@
 
 $e1=$_GET['eao'];
 $fvd=$_GET['projId'];
-
+$sdv = $_SERVER['QUERY_STRING'];
+echo $sdv;
 print_r($_GET);
