@@ -34,9 +34,15 @@ $assign = $_GET['as'];
             echo '<style type="text/css">
                     #sin{
                     display: none;
-                    }</style>';
+                    }
+                    #mul{
+                    display: block;
+                }</style>';
         }else{
             echo '<style type="text/css">
+                     #sin{
+                    display: block;
+                    }
                     #mul{
                     display: none;
                     }</style>';
@@ -76,7 +82,7 @@ $assign = $_GET['as'];
             <div id="sin">
                 <form method="get" action="eaoass.php" class="form-horizontal col-md-5 col-md-offset-4">
                     <label for="eao">Select EAO
-                        <select name="eao"  id="mul" class="form-control">
+                        <select name="eao"  class="form-control">
                             <?php $sdsf= "SELECT firstname, lastname,staff_ID FROM staff WHERE role = 'EAO'";
                             $mines=mysqli_query($link, $sdsf);
                             if(mysqli_num_rows($mines)>0){
