@@ -11,4 +11,7 @@ $fvd=$_GET['projId'];
 //$sdv = $_SERVER['QUERY_STRING'];
 //echo $sdv;
 $Query = explode('&', explode("?", $_SERVER['REQUEST_URI'])[1]);
-var_dump($Query);
+echo $Query[0];
+echo $Query[1];
+echo $Query[2];
+
