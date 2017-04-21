@@ -34,13 +34,14 @@ include('connection.php');
         $sqqq ="SELECT * FROM projects WHERE id NOT IN ( SELECT projID FROM staff_proj) ";
        $answe= mysqli_query($link, $sqqq);
         echo "<table class='table table-striped'><thead><tr><td>Student Name</td><td>Student ID</td> <td>Project Title</td></tr></thead><tbody>";
-        if(mysqli_num_rows($answe)>0){
+        if(mysqli_num_rows($answe)>0) {
 
-        while($resu=mysqli_fetch_assoc($answe)) {
-            $dse = "SELECT * FROM  student WHERE student_ID='{$resu['std_ID']}'";
-                    $fds=mysqli_query($link, $dse);
-                   $svd= mysqli_fetch_assoc($fds);
-            echo "<tr><td>" . "<a href='projassign.php?p={$resu['id']}&sid={$resu['std_ID']} &as=0'>". $svd['firstname'] . "  ".$svd['lastname'] .  "</td><td>" . $svd['student_ID'] . "</td><td>" . $resu['title'] ."</a>". "</td></tr>";
+            while ($resu = mysqli_fetch_assoc($answe)) {
+                $dse = "SELECT * FROM  student WHERE student_ID='{$resu['std_ID']}'";
+                $fds = mysqli_query($link, $dse);
+                $svd = mysqli_fetch_assoc($fds);
+                echo "<tr><td>" . "<a href='projassign.php?p={$resu['id']}&sid={$resu['std_ID']} &as=0'>" . $svd['firstname'] . "  " . $svd['lastname'] . "</td><td>" . $svd['student_ID'] . "</td><td>" . $resu['title'] . "</a>" . "</td></tr>";
+            }
         }
         $sdsd = "Select projID from staff_proj Group by projID having count(*)<2 ";
         $asas= mysqli_query($link,$sdsd);
@@ -54,14 +55,14 @@ include('connection.php');
                     $sdds =mysqli_fetch_assoc($sdxx);
 
                 echo "<tr><td>" . "<a href='projassign.php?p={$fd['id']}&sid={$fd['std_ID']}&as=1'>". $sdds['firstname'] . "  ".$sdds['lastname'] .  "</td><td>" . $sdds['student_ID'] . "</td><td>" . $fd['title'] ."</a>". "</td></tr>";
+
             }
 
         }
         echo "</tbody></table>";
-        }
-        else{
-            echo "There are no student projects at the moment. Please check back later";
-        }
+        if(mysqli_num_rows($asas)==0 && mysqli_num_rows($answe)==0){?>
+            <h4>There are no student projects at the moment. Please check back later</h4>
+<?php}
         ?>
 </body>
 </html>
