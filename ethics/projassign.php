@@ -34,6 +34,14 @@ $std_ID = $_GET['sid'];
 <body>
             <h2>Assign Experimental Approval Officer (EAO)</h2>
         <?php
+                $s = "SELECT projID, count(*) AS c FROM staff_proj GROUP  BY projID";
+
+                    $ede=mysqli_query($link, $s);
+                    while($resor = mysqli_fetch_assoc($ede)){
+                        if($resor['c']==1){
+
+                        }
+                    }
                $sst = "SELECT * FROM projects WHERE id= '$proj_ID'";
               $sedde= mysqli_query($link, $sst);
 

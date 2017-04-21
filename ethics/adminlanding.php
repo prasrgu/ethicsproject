@@ -31,15 +31,31 @@ include('connection.php');
 </head>
 <body>
 <?php
-        $sqqq ="SELECT * FROM projects ";
+        $sqqq ="SELECT * FROM projects WHERE id NOT IN ( SELECT projID FROM staff_proj) ";
        $answe= mysqli_query($link, $sqqq);
+        echo "<table class='table table-striped'><thead><tr><td>Student Name</td><td>Student ID</td> <td>Project Title</td></tr></thead><tbody>";
         if(mysqli_num_rows($answe)>0){
-            echo "<table class='table table-striped'><thead><tr><td>Student Name</td><td>Student ID</td> <td>Project Title</td></tr></thead><tbody>";
+
         while($resu=mysqli_fetch_assoc($answe)) {
             $dse = "SELECT * FROM  student WHERE student_ID='{$resu['std_ID']}'";
                     $fds=mysqli_query($link, $dse);
                    $svd= mysqli_fetch_assoc($fds);
-            echo "<tr><td>" . "<a href='projassign.php?p={$resu['id']}&sid={$resu['std_ID']}'>". $svd['firstname'] . "  ".$svd['lastname'] . "</a>". "</td><td>" . $svd['student_ID'] . "</td><td>" . $resu['title'] . "</td></tr>";
+            echo "<tr><td>" . "<a href='projassign.php?p={$resu['id']}&sid={$resu['std_ID']}'>". $svd['firstname'] . "  ".$svd['lastname'] .  "</td><td>" . $svd['student_ID'] . "</td><td>" . $resu['title'] ."</a>". "</td></tr>";
+        }
+        $sdsd = "Select projID from staff_proj Group by projID having count(*)<2 ";
+        $asas= mysqli_query($link,$sdsd);
+        if(mysqli_num_rows($asas)>0){
+            while($reo=mysqli_fetch_assoc($asas)){
+                $sfd = "SELECT * FROM projects where id = '{$reo['id']}'";
+                   $asa= mysqli_query($link,$sfd);
+                   $fd=mysqli_fetch_assoc($asa);
+                $dse = "SELECT * FROM  student WHERE student_ID='{$fd['std_ID']}'";
+                $sdxx=mysqli_query($link, $dse);
+                    $sdds =mysqli_fetch_assoc($sdxx);
+
+                echo "<tr><td>" . "<a href='projassign.php?p={$fd['id']}&sid={$sdds['std_ID']}'>". $sdds['firstname'] . "  ".$sdds['lastname'] .  "</td><td>" . $sdds['student_ID'] . "</td><td>" . $fd['title'] ."</a>". "</td></tr>";
+            }
+
         }
         echo "</tbody></table>";
         }
