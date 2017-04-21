@@ -9,6 +9,8 @@
 include('connection.php');
 $proj_ID=$_GET['p'];
 $std_ID = $_GET['sid'];
+$assign = $_GET['as'];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,20 +30,23 @@ $std_ID = $_GET['sid'];
 
     <script src="https://use.fontawesome.com/425f6058af.js"></script>
 
-
+        <?php   if($assign==0){
+            echo '<style type="text/css">
+                    #sin{
+                    display: none;
+                    }</style>';
+        }else{
+            echo '<style type="text/css">
+                    #mul{
+                    display: none;
+                    }</style>';
+        }?>
 
 </head>
 <body>
             <h2>Assign Experimental Approval Officer (EAO)</h2>
         <?php
-                $s = "SELECT projID, count(*) AS c FROM staff_proj GROUP  BY projID";
 
-                    $ede=mysqli_query($link, $s);
-                    while($resor = mysqli_fetch_assoc($ede)){
-                        if($resor['c']==1){
-
-                        }
-                    }
                $sst = "SELECT * FROM projects WHERE id= '$proj_ID'";
               $sedde= mysqli_query($link, $sst);
 
@@ -50,6 +55,7 @@ $std_ID = $_GET['sid'];
                 echo "<h3>"."Description: ".$deta['description']."</h3>";
                 echo "<h3>"."Submission Date: ".$deta['submissionDate']."</h3>";
         ?>
+           <div id="mul">
             <form method="get" action="eaoass.php" class="form-horizontal col-md-5 col-md-offset-4">
                 <label for="eao">Select EAO
                 <select name="eao"  id="mul" class="form-control" multiple>
@@ -66,6 +72,25 @@ $std_ID = $_GET['sid'];
             <button type="submit" class="btn btn-primary">Assign</button>
 
             </form>
+           </div>
+            <div id="sin">
+                <form method="get" action="eaoass.php" class="form-horizontal col-md-5 col-md-offset-4">
+                    <label for="eao">Select EAO
+                        <select name="eao"  id="mul" class="form-control">
+                            <?php $sdsf= "SELECT firstname, lastname,staff_ID FROM staff WHERE role = 'EAO'";
+                            $mines=mysqli_query($link, $sdsf);
+                            if(mysqli_num_rows($mines)>0){
+                                while($restless=mysqli_fetch_assoc($mines)){
+                                    echo "<option value='{$restless['staff_ID']}'>".$restless['firstname']. "  ".$restless['lastname']."</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Assign</button>
+
+                </form>
+            </div>
 
 
 
