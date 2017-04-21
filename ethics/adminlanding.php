@@ -46,7 +46,7 @@ include('connection.php');
         $asas= mysqli_query($link,$sdsd);
         if(mysqli_num_rows($asas)>0){
             while($reo=mysqli_fetch_assoc($asas)){
-                $sfd = "SELECT * FROM projects where id = '{$reo['id']}'";
+                $sfd = "SELECT * FROM projects where id = '{$reo['projID']}'";
                    $asa= mysqli_query($link,$sfd);
                    $fd=mysqli_fetch_assoc($asa);
                 $dse = "SELECT * FROM  student WHERE student_ID='{$fd['std_ID']}'";
