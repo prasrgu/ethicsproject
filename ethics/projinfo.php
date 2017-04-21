@@ -9,12 +9,12 @@
 include ('connection.php');
 
 $pid = $_GET['p'];
-
+session_start();
 
 $sab = "SELECT * FROM projects WHERE id = '$pid'";
     $d=mysqli_query($link, $sab);
 $sddg = mysqli_fetch_assoc($d);
-session_start();
+
 
 if(!isset($_SESSION['uid'])) {
     header('location : index.php');
