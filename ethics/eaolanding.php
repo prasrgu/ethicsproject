@@ -30,7 +30,7 @@ if(isset($_SESSION['uid'])) {
                         $sva= mysqli_fetch_assoc($ed);
                     ?>
                     <tr >
-                    <td ><? echo $sdsd['title'];?> </td >
+                        <td ><a href=projinfo?p=<?echo $sdvd['id'];?>><? echo $sdsd['title'];?></a> </td >
                     <td ><? echo $sva['firstname']. "  ".$sva['firstname'];?>  </td >
                     <td ><? echo $sdsd['submissionDate'];?></td >
 
