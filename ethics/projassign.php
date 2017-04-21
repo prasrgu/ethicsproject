@@ -103,7 +103,7 @@ $assign = $_GET['as'];
                 $("select").on('click', 'option', function() {
                     if ($("select option:selected").length > 2) {
                         $(this).removeAttr("selected");
-                         alert('You can select upto 2 options only');
+                         alert('You can select 2 Assessment Officers only');
                     }
                 });
             </script>
