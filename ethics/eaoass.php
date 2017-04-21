@@ -8,7 +8,7 @@
 
 $e1=$_GET['eao'];
 $fvd=$_GET['projId'];
-$sdv = $_SERVER['QUERY_STRING'];
-echo $sdv;
+//$sdv = $_SERVER['QUERY_STRING'];
+//echo $sdv;
 $Query = explode('&', explode("?", $_SERVER['REQUEST_URI'])[1]);
 var_dump($Query);
