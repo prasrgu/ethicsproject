@@ -60,9 +60,6 @@ include('connection.php');
 
         }
         echo "</tbody></table>";
-        if(mysqli_num_rows($asas)==0 && mysqli_num_rows($answe)==0){?>
-            <h4>There are no student projects at the moment. Please check back later</h4>
-<?php}
-        ?>
+
 </body>
 </html>
