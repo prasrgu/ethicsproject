@@ -6,5 +6,3 @@
  * Time: 23:11
  */
 
-$sso =$_POST['eao'];
-echo $sso;
