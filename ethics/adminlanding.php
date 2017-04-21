@@ -40,7 +40,7 @@ include('connection.php');
             $dse = "SELECT * FROM  student WHERE student_ID='{$resu['std_ID']}'";
                     $fds=mysqli_query($link, $dse);
                    $svd= mysqli_fetch_assoc($fds);
-            echo "<tr><td>" . "<a href='projassign.php?p={$resu['id']}&sid={$resu['std_ID']}'>". $svd['firstname'] . "  ".$svd['lastname'] .  "</td><td>" . $svd['student_ID'] . "</td><td>" . $resu['title'] ."</a>". "</td></tr>";
+            echo "<tr><td>" . "<a href='projassign.php?p={$resu['id']}&sid={$resu['std_ID']} &as=0'>". $svd['firstname'] . "  ".$svd['lastname'] .  "</td><td>" . $svd['student_ID'] . "</td><td>" . $resu['title'] ."</a>". "</td></tr>";
         }
         $sdsd = "Select projID from staff_proj Group by projID having count(*)<2 ";
         $asas= mysqli_query($link,$sdsd);
@@ -53,7 +53,7 @@ include('connection.php');
                 $sdxx=mysqli_query($link, $dse);
                     $sdds =mysqli_fetch_assoc($sdxx);
 
-                echo "<tr><td>" . "<a href='projassign.php?p={$fd['id']}&sid={$fd['std_ID']}'>". $sdds['firstname'] . "  ".$sdds['lastname'] .  "</td><td>" . $sdds['student_ID'] . "</td><td>" . $fd['title'] ."</a>". "</td></tr>";
+                echo "<tr><td>" . "<a href='projassign.php?p={$fd['id']}&sid={$fd['std_ID']}&as=1'>". $sdds['firstname'] . "  ".$sdds['lastname'] .  "</td><td>" . $sdds['student_ID'] . "</td><td>" . $fd['title'] ."</a>". "</td></tr>";
             }
 
         }
