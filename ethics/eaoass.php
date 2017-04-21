@@ -11,7 +11,13 @@ $fvd=$_GET['projId'];
 //$sdv = $_SERVER['QUERY_STRING'];
 //echo $sdv;
 $Query = explode('&', explode("?", $_SERVER['REQUEST_URI'])[1]);
-echo $Query[0];
-echo $Query[1];
-echo $Query[2];
+
+echo substr($Query[1],4);
+echo substr($Query[0],7);
+echo substr($Query[2],4);
+//if( count($Query)==3){
+  //  $xcb="INSERT INTO staff_proj VALUES (substr($Query[1],4),)";
+//}
+//if(count($Query)==2)
+ //   $xcb="INSERT INTO staff_proj VALUES (,)";
 
