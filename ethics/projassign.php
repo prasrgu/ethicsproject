@@ -62,8 +62,8 @@ $assign = $_GET['as'];
                 echo "<h3>"."Submission Date: ".$deta['submissionDate']."</h3>";
         ?>
            <div id="mul">
-            <form method="get" action="eaoass.php?p=<?php echo $proj_ID;?>" class="form-horizontal col-md-5 col-md-offset-4">
-                <input name="projId" value=2 hidden>
+            <form method="get" action="eaoass.php" class="form-horizontal col-md-5 col-md-offset-4">
+                <input name="projId" value=<?php echo $proj_ID ?> hidden>
                 <label for="eao">Select EAO
                 <select name="eao"  id="mul" class="form-control" multiple>
                    <?php $sdsf= "SELECT firstname, lastname,staff_ID FROM staff WHERE role = 'EAO'";
@@ -81,8 +81,8 @@ $assign = $_GET['as'];
             </form>
            </div>
             <div id="sin">
-                <form method="get" action="eaoass.php?p=<?php echo $proj_ID;?>" class="form-horizontal col-md-5 col-md-offset-4">
-                    <input name="projId" value=2 hidden>
+                <form method="get" action="eaoass.php" class="form-horizontal col-md-5 col-md-offset-4">
+                    <input name="projId" value=<?php echo $proj_ID ?>  hidden>
                     <label for="eao">Select EAO
                         <select name="eao"  class="form-control">
                             <?php $sdsf= "SELECT firstname, lastname,staff_ID FROM staff WHERE role = 'EAO'";
