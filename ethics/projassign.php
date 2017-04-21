@@ -99,7 +99,14 @@ $assign = $_GET['as'];
             </div>
 
 
-
+            <script>
+                $("select").on('click', 'option', function() {
+                    if ($("select option:selected").length > 2) {
+                        $(this).removeAttr("selected");
+                         alert('You can select upto 3 options only');
+                    }
+                });
+            </script>
 
 
 
