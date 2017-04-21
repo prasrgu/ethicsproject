@@ -7,6 +7,7 @@
  */
 include ('connection.php');
 session_start();
+
 if(isset($_SESSION['uid'])) {
     $sos = "SELECT * FROM projects WHERE id IN (SELECT projID FROM staff_proj WHERE staffId='{$_SESSION['uid']}')";
 
@@ -24,7 +25,7 @@ if(isset($_SESSION['uid'])) {
                 </thead>
                 <tbody>
                 <?php while($sdsd=mysqli_fetch_assoc($sdvsd)) {
-                        $cvbd = "SELECT firstname, lastname FROM student WHERE student_ID = '{$sdsd['std_ID']}'"
+                        $cvbd = "SELECT firstname, lastname FROM student WHERE student_ID = '{$sdsd['std_ID']}'";
                         $ed = mysqli_query($link, $cvbd);
                         $sva= mysqli_fetch_assoc($ed);
                     ?>
