@@ -46,14 +46,14 @@ $ree = $_GET['unit'];
 
                     }
                      else{
-                         $pry= array("status"=> "200", "message" => "No Project with the student ID");
+                         $pry= ["status"=> "200", "message" => "No Project with the student ID"];
                          echo $pry;
                      }
 
                 }
             }
             else{
-                    $pry  = array("id"=>NULL,"title"=>NULL, "description" =>NULL, "submissionDate"=> NULL , "std_ID" => null, "ethics_form_ID"=>NULL, "message"=> "No Records Available" );
+                    $pry  = ["id"=>NULL,"title"=>NULL, "description" =>NULL, "submissionDate"=> NULL , "std_ID" => null, "ethics_form_ID"=>NULL, "message"=> "No Records Available" ];
                     echo $pry;
                 }
 
@@ -74,7 +74,7 @@ $ree = $_GET['unit'];
                     $pry = indent($pry);
                     echo $pry;
                 }else{
-                    $pry  = array( "firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available");
+                    $pry  = [ "firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available"];
                     echo $pry;
 
                 }
@@ -96,7 +96,7 @@ $ree = $_GET['unit'];
                     $pry = indent($pry);
                     echo $pry;
                 }else{
-                    $pry  = array( "firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "role"=>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available");
+                    $pry  = ["firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "role"=>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available"];
                     echo $pry;
                 }
 
