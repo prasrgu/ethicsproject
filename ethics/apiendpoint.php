@@ -27,9 +27,16 @@ $ree = $_GET['unit'];
                         $pry = indent($pry);
                         echo $pry;
                     }
-    //Not working
-                 else {
-                    $sel = "SELECT * FROM projects WHERE std_ID = $ree";
+                    else{
+                        $pry  = ["id"=>NULL,"title"=>NULL, "description" =>NULL, "submissionDate"=> NULL , "std_ID" => null, "ethics_form_ID"=>NULL, "message"=> "No Records Available" ];
+                        echo $pry;
+                    }
+
+
+
+                }
+                else {
+                    $sel = "SELECT * FROM projects WHERE std_ID = '$ree'";
                     $les = mysqli_query($link, $sel);
                     if (mysqli_num_rows($les) > 0) {
                         $count = 0;
@@ -44,17 +51,13 @@ $ree = $_GET['unit'];
                         echo($pry);
 
                     }
-                     else{
-                         $pry= ["status"=> "200", "message" => "No Project with the student ID"];
-                         echo $pry;
-                     }
+                    else{
+                        $pry= ["status"=> "200", "message" => "No Project with the student ID"];
+                        echo $pry;
+                    }
 
                 }
-            }
-            else{
-                    $pry  = ["id"=>NULL,"title"=>NULL, "description" =>NULL, "submissionDate"=> NULL , "std_ID" => null, "ethics_form_ID"=>NULL, "message"=> "No Records Available" ];
-                    echo $pry;
-                }
+
 
             }elseif(($req == "students")  ){
                 $query = "SELECT firstname, lastname, email, address, student_ID FROM  student";
