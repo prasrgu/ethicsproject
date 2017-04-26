@@ -47,7 +47,7 @@ $req = $_GET['que'];
 
                 }
 
-            }elseif(($req = "staff") ||($req=="Staff")|| ($req=="STAFF")){
+            }elseif(($req = "staff")){
                 $query = "SELECT firstname, lastname, email,role, address, staff_ID FROM  staff";
                 $result = mysqli_query($link, $query);
                 if(mysqli_num_rows($result)>0) {
