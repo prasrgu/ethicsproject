@@ -31,8 +31,17 @@ $req = $_GET['que'];
                 $query = "SELECT firstname, lastname, email, address, student_ID FROM  student";
                 $result = mysqli_query($link, $query);
                 if(mysqli_num_rows($result)>0) {
-                    $res=  mysqli_fetch_assoc($result);
-                    $pry=json_encode($res);
+                    $count= 0;
+                    while( $res=  mysqli_fetch_assoc($result)){
+
+                        $prite[$count]=$res;
+                        $count++;
+
+                    }
+
+
+                    $pry=json_encode($prite);
+                    $pry = indent($pry);
                     echo $pry;
                 }else{
 
@@ -42,8 +51,17 @@ $req = $_GET['que'];
                 $query = "SELECT firstname, lastname, email,role, address, staff_ID FROM  staff";
                 $result = mysqli_query($link, $query);
                 if(mysqli_num_rows($result)>0) {
-                    $res=  mysqli_fetch_assoc($result);
-                    $pry=json_encode($res);
+                    $count= 0;
+                    while( $res=  mysqli_fetch_assoc($result)){
+
+                        $prite[$count]=$res;
+                        $count++;
+
+                    }
+
+
+                    $pry=json_encode($prite);
+                    $pry = indent($pry);
                     echo $pry;
                 }else{
 
