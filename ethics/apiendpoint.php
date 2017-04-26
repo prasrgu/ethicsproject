@@ -1,30 +1,58 @@
 <?php
 
 
-$req = $_GET['que'];
+$req = $_GET['q'];
+$ree = $_GET['unit'];
 
         $req = strtolower($req);
+        $ree = strtolower($ree);
         header('Content-Type: application/json');
         include('connection.php');
 
         if (!empty($req)){
             if(($req=="projects")) {
-                $query = "SELECT * FROM  projects";
-                $result = mysqli_query($link, $query);
-                if(mysqli_num_rows($result)>0) {
-                    $count= 0;
-                while( $res=  mysqli_fetch_assoc($result)){
+                if (empty($_GET['unit'])) {
+                    $query = "SELECT * FROM  projects";
+                    $result = mysqli_query($link, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                        $count = 0;
+                        while ($res = mysqli_fetch_assoc($result)) {
 
-                    $prite[$count]=$res;
-                    $count++;
+                            $prite[$count] = $res;
+                            $count++;
+
+                        }
+
+
+                        $pry = json_encode($prite);
+                        $pry = indent($pry);
+                        echo $pry;
+                    }
+
+                 else {
+                    $sel = "SELECT * FROM projects WHERE std_ID = '$ree'";
+                    $les = mysqli_query($link, $sel);
+                    if (mysqli_num_rows($les) > 0) {
+                        $count = 0;
+                        while ($prints = mysqli_fetch_assoc($les)) {
+
+                            $prite[$count] = $prints;
+                            $count++;
+
+                        }
+                        $pry = json_encode($prite);
+                        $pry = indent($pry);
+                        echo $pry;
+
+                    }
+                     else{
+                         $pry= array("status"=> "200", "message" => "No Project with the student ID");
+                         echo $pry;
+                     }
 
                 }
-
-
-                        $pry=json_encode($prite);
-                        $pry = indent($pry);
-                    echo $pry;
-                }else{
+            }
+            else{
                     $pry  = array("id"=>NULL,"title"=>NULL, "description" =>NULL, "submissionDate"=> NULL , "std_ID" => null, "ethics_form_ID"=>NULL, "message"=> "No Records Available" );
                     echo $pry;
                 }
