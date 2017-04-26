@@ -18,12 +18,13 @@ $req = $_GET['que'];
 
                 }
 
-            }elseif(($req = "students") ||($req=="Students")|| ($req=="STUDENTS") ){
+            }elseif(($req = "students")  ){
                 $query = "SELECT * FROM  student";
                 $result = mysqli_query($link, $query);
-                if(mysqli_num_rows($results)>0) {
-
-                    json_encode(array('text' => 'omrele'));
+                if(mysqli_num_rows($result)>0) {
+                    $res=  mysqli_fetch_assoc($result);
+                    $pry=json_encode($res);
+                    echo $pry;
                 }else{
 
                 }
@@ -31,9 +32,10 @@ $req = $_GET['que'];
             }elseif(($req = "staff") ||($req=="Staff")|| ($req=="STAFF")){
                 $query = "SELECT * FROM  staff";
                 $result = mysqli_query($link, $query);
-                if(mysqli_num_rows($results)>0) {
-
-                    json_encode(array('text' => 'omrele'));
+                if(mysqli_num_rows($result)>0) {
+                    $res=  mysqli_fetch_assoc($result);
+                    $pry=json_encode($res);
+                    echo $pry;
                 }else{
 
                 }
