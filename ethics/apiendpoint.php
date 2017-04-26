@@ -3,6 +3,7 @@
 
 $req = $_GET['que'];
 
+        $req = strtolower($req);
         header('Content-Type: application/json');
         include('connection.php');
 
@@ -24,7 +25,8 @@ $req = $_GET['que'];
                         $pry = indent($pry);
                     echo $pry;
                 }else{
-
+                    $pry  = array("id"=>NULL,"title"=>NULL, "description" =>NULL, "submissionDate"=> NULL , "std_ID" => null, "ethics_form_ID"=>NULL, "message"=> "No Records Available" );
+                    echo $pry;
                 }
 
             }elseif(($req == "students")  ){
@@ -44,6 +46,8 @@ $req = $_GET['que'];
                     $pry = indent($pry);
                     echo $pry;
                 }else{
+                    $pry  = array( "firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available");
+                    echo $pry;
 
                 }
 
@@ -64,7 +68,8 @@ $req = $_GET['que'];
                     $pry = indent($pry);
                     echo $pry;
                 }else{
-
+                    $pry  = array( "firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "role"=>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available");
+                    echo $pry;
                 }
 
             }
