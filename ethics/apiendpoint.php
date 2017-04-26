@@ -5,7 +5,6 @@ $req = $_GET['q'];
 $ree = $_GET['unit'];
 
         $req = strtolower($req);
-        
         header('Content-Type: application/json');
         include('connection.php');
 
@@ -42,7 +41,7 @@ $ree = $_GET['unit'];
                         }
                         $pry = json_encode($prite);
                         $pry = indent($pry);
-                        echo $pry;
+                        print_r($pry);
 
                     }
                      else{
