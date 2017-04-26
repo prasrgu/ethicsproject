@@ -27,9 +27,9 @@ $ree = $_GET['unit'];
                         $pry = indent($pry);
                         echo $pry;
                     }
-
+    //Not working
                  else {
-                    $sel = "SELECT * FROM projects WHERE std_ID = '$ree'";
+                    $sel = "SELECT * FROM projects WHERE std_ID = $ree";
                     $les = mysqli_query($link, $sel);
                     if (mysqli_num_rows($les) > 0) {
                         $count = 0;
@@ -41,7 +41,7 @@ $ree = $_GET['unit'];
                         }
                         $pry = json_encode($prite);
                         $pry = indent($pry);
-                        print_r($pry);
+                        echo($pry);
 
                     }
                      else{
