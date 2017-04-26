@@ -12,6 +12,7 @@ $req = $_GET['que'];
                 $result = mysqli_query($link, $query);
                 if(mysqli_num_rows($result)>0) {
                  $res=  mysqli_fetch_assoc($result);
+
                         $pry=json_encode($res);
                     echo $pry;
                 }else{
@@ -19,7 +20,7 @@ $req = $_GET['que'];
                 }
 
             }elseif(($req = "students")  ){
-                $query = "SELECT * FROM  student";
+                $query = "SELECT firstname, lastname, email, address, role, staff_ID FROM  student";
                 $result = mysqli_query($link, $query);
                 if(mysqli_num_rows($result)>0) {
                     $res=  mysqli_fetch_assoc($result);
@@ -30,7 +31,7 @@ $req = $_GET['que'];
                 }
 
             }elseif(($req = "staff") ||($req=="Staff")|| ($req=="STAFF")){
-                $query = "SELECT * FROM  staff";
+                $query = "SELECT firstname, lastname, email, address, student_ID FROM  staff";
                 $result = mysqli_query($link, $query);
                 if(mysqli_num_rows($result)>0) {
                     $res=  mysqli_fetch_assoc($result);
