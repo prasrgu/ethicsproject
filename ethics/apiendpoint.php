@@ -11,9 +11,15 @@ $req = $_GET['que'];
                 $query = "SELECT * FROM  projects";
                 $result = mysqli_query($link, $query);
                 if(mysqli_num_rows($result)>0) {
-                 $res=  mysqli_fetch_assoc($result);
+                    $count= 0;
+                while( $res=  mysqli_fetch_assoc($result)){
 
-                        $pry=json_encode($res);
+                    $prite[$count]=$res;
+                    $count++;
+                }
+
+
+                        $pry=json_encode($prite);
                     echo $pry;
                 }else{
 
