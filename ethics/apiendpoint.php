@@ -7,10 +7,10 @@ $req = $_GET['que'];
         include('connection.php');
 
         if (!empty($req)){
-            if(($req=="projects") ||($req=="Projects") || ($req=="PROJECTS")) {
+            if(($req=="projects")) {
                 $query = "SELECT * FROM  projects";
                 $result = mysqli_query($link, $query);
-                if(mysqli_num_rows($results)>0) {
+                if(mysqli_num_rows($result)>0) {
                  $res=  mysqli_fetch_assoc($result);
                         $pry=json_encode($res);
                     echo $pry;
