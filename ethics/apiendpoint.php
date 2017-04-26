@@ -5,7 +5,7 @@ $req = $_GET['q'];
 $ree = $_GET['unit'];
 
         $req = strtolower($req);
-        $ree = strtolower($ree);
+        
         header('Content-Type: application/json');
         include('connection.php');
 
