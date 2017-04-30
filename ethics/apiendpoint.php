@@ -18,7 +18,7 @@ if(isset($requ[0])) {
 
                 $result = mysqli_query($link, $query);
                 }else{
-
+                            echo "It is rather Unfortunate";
             }
 
 
