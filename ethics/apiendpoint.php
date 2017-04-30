@@ -15,6 +15,7 @@ if(isset($requ[0])) {
 
 
                         $query = "UPDATE {$requ[0]} SET {$requ[1]} = '{$requ[2]}' WHERE {$requ[3]} = '{$requ[4]}'";
+                        var_dump($requ);
 
                 $result = mysqli_query($link, $query);
                 }else{
