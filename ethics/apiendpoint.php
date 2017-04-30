@@ -24,7 +24,7 @@ if(isset($requ[0])) {
 
             break;
         case 'POST':
-            if((count($requ)>1)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
+            if((count($requ)==7 || count($requ)==8)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
                 switch ($requ[0]){
                     case 'projects':
                         $query = "INSERT INTO {$requ[0]} VALUES ('{$requ[1]}', '{$requ[2]}', '{$requ[3]}', '{$requ[4]}' , '{$requ[5]}', '{$requ[6]}' ) ";
