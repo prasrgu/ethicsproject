@@ -11,11 +11,39 @@ if(isset($requ[0])) {
 
     switch ($request_verb) {
         case 'PUT':
-            echo $requ;
+            if((count($requ)==5)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
+
+
+                        $query = "UPDATE {$requ[0]} SET {$requ[1]} = '{$requ[2]}' WHERE {$requ[3]} = '{$requ[4]}'";
+
+                $result = mysqli_query($link, $query);
+                }else{
+
+            }
+
+
             break;
         case 'POST':
-            echo $requ;
-            break;
+            if((count($requ)>1)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
+                switch ($requ[0]){
+                    case 'projects':
+                        $query = "INSERT INTO {$requ[0]} VALUES ('{$requ[1]}', '{$requ[2]}', '{$requ[3]}', '{$requ[4]}' , '{$requ[5]}', '{$requ[6]}' ) ";
+                        break;
+                    case 'staff':
+                        $query = "INSERT INTO {$requ[0]} VALUES ('{$requ[1]}', '{$requ[2]}', '{$requ[3]}', '{$requ[4]}' , '{$requ[5]}', '{$requ[6]}', '{$requ[7]}'  ) ";
+                        break;
+                    case 'student':
+                        $query = "INSERT INTO {$requ[0]} VALUES ('{$requ[1]}', '{$requ[2]}', '{$requ[3]}', '{$requ[4]}' , '{$requ[5]}', '{$requ[6]}' ) ";
+                        break;
+
+                }
+
+                $result = mysqli_query($link, $query);
+
+            }else{
+
+            }
+                break;
         case 'GET':
 
             if( $requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student') {
@@ -56,37 +84,73 @@ if(isset($requ[0])) {
 
 
 
-                if (mysqli_num_rows($result) > 0) {
-                    $count = 0;
-                    while ($res = mysqli_fetch_assoc($result)) {
-                        $prite[$count] = $res;
-                        $count++;
 
-                    }
-
-
-                    $pry = json_encode($prite);
-                    $pry = indent($pry);
-                    echo $pry;
-                } else {
-                    /*
-                    $pry = ["id" => NULL, "title" => NULL, "description" => NULL, "submissionDate" => NULL, "std_ID" => null, "ethics_form_ID" => NULL, "message" => "No Records Available"];
-                    echo $pry;
-                    */
-                }
 
             }
 
 
             break;
         case 'DELETE':
-            echo $requ;
+            if( $requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student'){
+                if(count($requ)==1) {
+                    $query = "DELETE * FROM {$requ[0]}";
+                    $result = mysqli_query($link, $query);
+                }
+                elseif (count($requ)==2){
+                    switch($requ[0]) {
+                        case 'projects':
+                            $arrr = ['title', 'std_ID', 'ethics_form_ID'];
+                            break;
+                        case 'staff':
+                            $arrr = ['staff_ID'];
+                            break;
+                        case 'student':
+                            $arrr = ['student_ID'];
+                            break;
+
+                    }
+
+                }
+                unset($result);
+                foreach($arrr AS $value){
+                    $query = "DELETE FROM $requ[0] WHERE $value ='{$requ[1]}'";
+                    $result=mysqli_query($link, $query);
+                    if(mysqli_num_rows($result)>0)
+                        break;
+
+
+                }
+                unset($value);
+                unset($arrr);
+
+            }
             break;
         default:
             echo "I do not understand You";
 
 
     }
+
+
+     if (mysqli_num_rows($result) > 0) {
+    $count = 0;
+    while ($res = mysqli_fetch_assoc($result)) {
+        $prite[$count] = $res;
+        $count++;
+
+    }
+
+
+    $pry = json_encode($prite);
+    $pry = indent($pry);
+    echo $pry;
+} else {
+
+    /*
+    $pry = ["id" => NULL, "title" => NULL, "description" => NULL, "submissionDate" => NULL, "std_ID" => null, "ethics_form_ID" => NULL, "message" => "No Records Available"];
+    echo $pry;
+    */
+}
 }else{
 
 }
