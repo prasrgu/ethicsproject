@@ -29,10 +29,10 @@ if(isset($requ[0])) {
                             $arrr = ['title','std_ID', 'ethics_form_ID'];
                             break;
                         case 'staff':
-
+                            $arrr = ['staff_ID','role', 'firstname','lastname'];
                             break;
                         case 'student':
-                            $arrr = ['student_ID','firstname','lastname'];
+                            $arrr = ['student_ID', 'firstname','lastname'];
                             break;
 
                     }
