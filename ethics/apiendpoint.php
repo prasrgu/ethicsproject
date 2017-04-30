@@ -106,8 +106,9 @@ $ree = $_GET['unit'];
             }
             else{
                 $pry = array("status code " => 404 , "message"=> "Resource requested that does not exist");
-                $pry = indent($pry);
+
                 $pry = json_encode($pry);
+                $pry = indent($pry);
                 echo $pry;
             }
 
