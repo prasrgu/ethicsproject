@@ -3,6 +3,11 @@
 $request_verb  = $_SERVER['REQUEST_METHOD'];
 $requ = explode ("/", substr(@$_SERVER['PATH_INFO'], 1));
 $requ = array_map('strtolower', $requ);
+header('Content-Type: application/json');
+include('connection.php');
+
+
+$count = count($requ);
 
 switch($request_verb){
     case 'PUT':
@@ -14,6 +19,7 @@ switch($request_verb){
     case 'GET':
 
         print_r($requ);
+        echo $count;
         break;
     case 'DELETE':
         echo $requ;
