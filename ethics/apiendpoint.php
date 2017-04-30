@@ -98,14 +98,14 @@ $ree = $_GET['unit'];
                     $pry = indent($pry);
                     echo $pry;
                 }else{
-                    $pry  = ["status code " => 200 ,"firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "role"=>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available"];
+                    $pry  = array("status code " => 200 ,"firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "role"=>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available");
                     $pry = json_encode($pry);
                     echo $pry;
                 }
 
             }
             else{
-                $pry = ["status code " => 404 , "message"=> "Resource requested that does not exist"];
+                $pry = array("status code " => 404 , "message"=> "Resource requested that does not exist");
                 $pry = indent($pry);
                 $pry = json_encode($pry);
                 echo $pry;
