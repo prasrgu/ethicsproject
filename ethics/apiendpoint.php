@@ -1,7 +1,29 @@
 <?php
 
-$method  = $_SERVER['REQUEST_METHOD'];
+$request_verb  = $_SERVER['REQUEST_METHOD'];
+$requ = explode ("/", substr(@$_SERVER['PATH_INFO'], 1));
+$requ = array_map('strtolower', $requ);
 
+switch($request_verb){
+    case 'PUT':
+        echo $requ;
+        break;
+    case 'POST':
+        echo $requ;
+        break;
+    case 'GET':
+
+        print_r($requ);
+        break;
+    case 'DELETE':
+        echo $requ;
+        break;
+    default:
+        echo "I do not understand You";
+
+
+}
+/*
 $req = $_GET['q'];
 $ree = $_GET['unit'];
 
