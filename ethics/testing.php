@@ -16,7 +16,7 @@ switch($method){
         echo $req;
         break;
     case 'GET':
-        var_dump($req) ;
+
         print_r($req);
         break;
     case 'DELETE':
