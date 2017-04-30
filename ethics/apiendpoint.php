@@ -46,6 +46,7 @@ if(isset($requ[0])) {
 
                     }
                     unset($value);
+                    unset($arrr);
 
 
 
