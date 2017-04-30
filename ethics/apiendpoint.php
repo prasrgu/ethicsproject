@@ -1,5 +1,6 @@
 <?php
 
+$method  = $_SERVER['REQUEST_METHOD'];
 
 $req = $_GET['q'];
 $ree = $_GET['unit'];
@@ -8,7 +9,7 @@ $ree = $_GET['unit'];
         header('Content-Type: application/json');
         include('connection.php');
 
-        if (!empty($req)){
+        if (!empty($req) && isset($_GET['q'])){
             if(($req=="projects")) {
                 if (empty($_GET['unit'])) {
                     $query = "SELECT * FROM  projects";
@@ -113,6 +114,11 @@ $ree = $_GET['unit'];
             }
 
         }else{
+            $pry = array("status code " => 204, "message"=> "Empty Request");
+
+            $pry = json_encode($pry);
+            $pry = indent($pry);
+            echo $pry;
 
         }
 
