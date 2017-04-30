@@ -27,27 +27,28 @@ if(isset($requ[0])) {
                     switch ($requ[0]){
                         case 'projects':
                             $arrr = ['title','std_ID', 'ethics_form_ID'];
-                            unset($result);
-                            foreach($arrr AS $value){
-                                $query = "SELECT * FROM projects WHERE $value ='{$requ[1]}'";
-                                $result=mysqli_query($link, $query);
-                                if(mysqli_num_rows($result)>0)
-                                    break;
-
-
-                            }
-                            unset($value);
-
-
-
-
                             break;
                         case 'staff':
+
                             break;
                         case 'student':
+                            $arrr = ['student_ID','firstname','lastname'];
                             break;
 
                     }
+                    unset($result);
+                    foreach($arrr AS $value){
+                        $query = "SELECT * FROM $requ[0] WHERE $value ='{$requ[1]}'";
+                        $result=mysqli_query($link, $query);
+                        if(mysqli_num_rows($result)>0)
+                            break;
+
+
+                    }
+                    unset($value);
+
+
+
 
 
                 }
