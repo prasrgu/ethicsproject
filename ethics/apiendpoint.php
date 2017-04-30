@@ -18,11 +18,42 @@ if(isset($requ[0])) {
             break;
         case 'GET':
 
-            if(count($requ)==1 && ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')) {
-                $query = "SELECT * FROM {$requ[0]}";
+            if( $requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student') {
+                if(count($requ)==1) {
+                    $query = "SELECT * FROM {$requ[0]}";
+                    $result = mysqli_query($link, $query);
+                }
+                elseif (count($requ)==2){
+                    switch ($requ[0]){
+                        case 'projects':
+                            $arrr = ['title','std_ID', 'ethics_form_ID'];
+                            unset($result);
+                            foreach($arrr AS $value){
+                                $query = "SELECT * FROM projects WHERE $value ='{$requ[1]}'";
+                                $result=mysqli_query($link, $query);
+                                if(mysqli_num_rows($result)>0)
+                                    break;
 
-                $result = mysqli_query($link, $query);
-                echo "I am happy with you as of now";
+
+                            }
+                            unset($value);
+
+
+
+
+                            break;
+                        case 'staff':
+                            break;
+                        case 'student':
+                            break;
+
+                    }
+
+
+                }
+
+
+
                 if (mysqli_num_rows($result) > 0) {
                     $count = 0;
                     while ($res = mysqli_fetch_assoc($result)) {
@@ -42,9 +73,8 @@ if(isset($requ[0])) {
                     */
                 }
 
-            }else{
-                // Invalid Request
             }
+
 
             break;
         case 'DELETE':
@@ -58,134 +88,7 @@ if(isset($requ[0])) {
 }else{
 
 }
-/*
-$req = $_GET['q'];
-$ree = $_GET['unit'];
 
-        $req = strtolower($req);
-        header('Content-Type: application/json');
-        include('connection.php');
-
-        if (!empty($req) && isset($_GET['q'])){
-            if(($req=="projects")) {
-                if (empty($_GET['unit'])) {
-                    $query = "SELECT * FROM  projects";
-                    $result = mysqli_query($link, $query);
-                    if (mysqli_num_rows($result) > 0) {
-                        $count = 0;
-                        while ($res = mysqli_fetch_assoc($result)) {
-
-                            $prite[$count] = $res;
-                            $count++;
-
-                        }
-
-
-                        $pry = json_encode($prite);
-                        $pry = indent($pry);
-                        echo $pry;
-                    }
-                    else{
-                        $pry  = ["id"=>NULL,"title"=>NULL, "description" =>NULL, "submissionDate"=> NULL , "std_ID" => null, "ethics_form_ID"=>NULL, "message"=> "No Records Available" ];
-                        echo $pry;
-                    }
-
-
-
-                }
-                else {
-                    $sel = "SELECT * FROM projects WHERE std_ID = '$ree'";
-                    $les = mysqli_query($link, $sel);
-                    if (mysqli_num_rows($les) > 0) {
-                        $count = 0;
-                        while ($prints = mysqli_fetch_assoc($les)) {
-
-                            $prite[$count] = $prints;
-                            $count++;
-
-                        }
-                        $pry = json_encode($prite);
-                        $pry = indent($pry);
-                        echo($pry);
-
-                    }
-                    else{
-                        $pry= ["status"=> "200", "message" => "No Project with the student ID"];
-                        echo $pry;
-                    }
-
-                }
-
-
-            }elseif(($req == "students")  ){
-                $query = "SELECT firstname, lastname, email, address, student_ID FROM  student";
-                $result = mysqli_query($link, $query);
-                if(mysqli_num_rows($result)>0) {
-                    $count= 0;
-                    while( $res=  mysqli_fetch_assoc($result)){
-
-                        $prite[$count]=$res;
-                        $count++;
-
-                    }
-
-
-                    $pry=json_encode($prite);
-                    $pry = indent($pry);
-                    echo $pry;
-                }else{
-                    $pry  = [ "firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available"];
-                    echo $pry;
-
-                }
-
-            }elseif(($req == "staff")){
-                $query = "SELECT firstname, lastname, email,role, address, staff_ID FROM  staff";
-                $result = mysqli_query($link, $query);
-                if(mysqli_num_rows($result)>0) {
-                    $count= 0;
-                    while( $res=  mysqli_fetch_assoc($result)){
-
-                        $prite[$count]=$res;
-                        $count++;
-
-                    }
-
-
-                    $pry=json_encode($prite);
-                    $pry = indent($pry);
-                    echo $pry;
-                }else{
-                    $pry  = array("status code " => 200 ,"firstname"=>NULL, "lastname" => NULL,  "email" =>NULL,  "role"=>NULL,  "address"=>NULL,  "student_ID"=>NULL, "message"=> "No Records Available");
-                    $pry = json_encode($pry);
-                    echo $pry;
-                }
-
-            }
-            else{
-                $pry = array("status code " => 404 , "message"=> "Resource requested that does not exist");
-
-                $pry = json_encode($pry);
-                $pry = indent($pry);
-                echo $pry;
-            }
-
-        }else{
-            $pry = array("status code " => 204, "message"=> "Empty Request");
-
-            $pry = json_encode($pry);
-            $pry = indent($pry);
-            echo $pry;
-
-        }
-
-
-
-
-
-
-
-*/
 function indent($json)
 {
 
