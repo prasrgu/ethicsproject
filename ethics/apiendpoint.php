@@ -20,7 +20,9 @@ if(isset($requ[0])) {
 
             if(count($requ)==1 && ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')) {
                 $query = "SELECT * FROM {$requ[0]}";
+
                 $result = mysqli_query($link, $query);
+                echo "I am happy with you as of now";
                 if (mysqli_num_rows($result) > 0) {
                     $count = 0;
                     while ($res = mysqli_fetch_assoc($result)) {
