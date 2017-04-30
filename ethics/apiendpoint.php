@@ -29,7 +29,7 @@ if(isset($requ[0])) {
                             $arrr = ['title','std_ID', 'ethics_form_ID'];
                             unset($result);
                             foreach($arrr AS $value){
-                                $query = "SELECT * FROM projects WHERE LOWER '({$value})' ='{$requ[1]}'";
+                                $query = "SELECT * FROM projects WHERE LOWER '('.{$value}.')' .='{$requ[1]}'";
                                 $result=mysqli_query($link, $query);
                                 if(mysqli_num_rows($result)>0)
                                     break;
