@@ -11,11 +11,11 @@ if(isset($requ[0])) {
 
     switch ($request_verb) {
         case 'PUT':
-            if((count($requ)==5)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
+            if((count($requ)<6)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
 
 
                         $query = "UPDATE {$requ[0]} SET {$requ[1]} = '{$requ[2]}' WHERE {$requ[3]} = '{$requ[4]}'";
-                        var_dump($requ);
+
 
                 $result = mysqli_query($link, $query);
                 }else{
@@ -97,7 +97,7 @@ if(isset($requ[0])) {
                     $query = "DELETE * FROM {$requ[0]}";
                     $result = mysqli_query($link, $query);
                 }
-                elseif (count($requ)==2){
+                elseif (count($requ)>1 && count($requ)<5){
                     switch($requ[0]) {
                         case 'projects':
                             $arrr = ['title', 'std_ID', 'ethics_form_ID'];
