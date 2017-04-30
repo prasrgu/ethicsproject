@@ -7,26 +7,52 @@ header('Content-Type: application/json');
 include('connection.php');
 
 
-$count = count($requ);
+if(isset($requ[0])) {
 
-switch($request_verb){
-    case 'PUT':
-        echo $requ;
-        break;
-    case 'POST':
-        echo $requ;
-        break;
-    case 'GET':
+    switch ($request_verb) {
+        case 'PUT':
+            echo $requ;
+            break;
+        case 'POST':
+            echo $requ;
+            break;
+        case 'GET':
+            if(count($requ)==1 && ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='students')) {
+                $query = "SELECT * FROM '{$requ[0]}'";
+                $result = mysqli_query($link, $query);
+                if (mysqli_num_rows($result) > 0) {
+                    $count = 0;
+                    while ($res = mysqli_fetch_assoc($result)) {
+                        $prite[$count] = $res;
+                        $count++;
 
-        print_r($requ);
-        echo $count;
-        break;
-    case 'DELETE':
-        echo $requ;
-        break;
-    default:
-        echo "I do not understand You";
+                    }
 
+
+                    $pry = json_encode($prite);
+                    $pry = indent($pry);
+                    echo $pry;
+                } else {
+                    /*
+                    $pry = ["id" => NULL, "title" => NULL, "description" => NULL, "submissionDate" => NULL, "std_ID" => null, "ethics_form_ID" => NULL, "message" => "No Records Available"];
+                    echo $pry;
+                    */
+                }
+
+            }else{
+                // Invalid Request
+            }
+
+            break;
+        case 'DELETE':
+            echo $requ;
+            break;
+        default:
+            echo "I do not understand You";
+
+
+    }
+}else{
 
 }
 /*
@@ -156,7 +182,7 @@ $ree = $_GET['unit'];
 
 
 
-
+*/
 function indent($json)
 {
 
