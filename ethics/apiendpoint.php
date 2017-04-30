@@ -19,7 +19,7 @@ if(isset($requ[0])) {
         case 'GET':
 
             if(count($requ)==1 && ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='students')) {
-                $query = "SELECT * FROM '{$requ[0]}'";
+                $query = "SELECT * FROM {$requ[0]}";
                 $result = mysqli_query($link, $query);
                 if (mysqli_num_rows($result) > 0) {
                     $count = 0;
