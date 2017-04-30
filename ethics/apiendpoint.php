@@ -14,7 +14,7 @@ if(isset($requ[0])) {
             if((count($requ)<6)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
 
 
-                        $query = "UPDATE {$requ[0]} SET '{$requ[1]}' = '{$requ[2]}' WHERE '{$requ[3]}' = '{$requ[4]}'";
+                        $query = "UPDATE {$requ[0]} SET $requ[1] = '{$requ[2]}' WHERE $requ[3] = '{$requ[4]}'";
 
 
                 $result = mysqli_query($link, $query);
