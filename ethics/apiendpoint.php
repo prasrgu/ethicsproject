@@ -13,13 +13,14 @@ if(isset($requ[0])) {
         case 'PUT':
             if((count($requ)<6)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
 
-
+                $ans= json_encode($requ);
+                var_dump($requ);
                         $query = "UPDATE {$requ[0]} SET {$requ[1]} = '{$requ[2]}' WHERE {$requ[3]} = '{$requ[4]}'";
 
 
 
                 $result = mysqli_query($link, $query);
-                echo json_encode($requ);
+
                 }else{
                             echo "It is rather Unfortunate";
             }
@@ -100,6 +101,8 @@ if(isset($requ[0])) {
                     $result = mysqli_query($link, $query);
                 }
                 elseif (count($requ)>1 && count($requ)<5){
+                    unset($value);
+                    unset($arrr);
                     switch($requ[0]) {
                         case 'projects':
                             $arrr = ['title', 'std_ID', 'ethics_form_ID'];
@@ -123,8 +126,7 @@ if(isset($requ[0])) {
 
 
                 }
-                unset($value);
-                unset($arrr);
+
 
             }
             break;
