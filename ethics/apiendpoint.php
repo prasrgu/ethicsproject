@@ -72,14 +72,10 @@ if (isset($requ[0])) {
                         if (mysqli_num_rows($result) > 0)
                             break;
 
-
                     }
                     unset($value);
                     unset($arrr);
-
-
                 }
-
 
             }
 
