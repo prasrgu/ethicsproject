@@ -4,6 +4,23 @@
     error_reporting(E_ALL);
     ini_set('display_errors',1);
 
+    $dbname = "localdb";
+
+$sql = "SHOW TABLES FROM $dbname";
+$result = mysqli_query($sql);
+
+if (!$result) {
+    echo "DB Error, could not list tables\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+
+while ($row = mysqli_fetch_row($result)) {
+    echo "Table: {$row[0]}\n";
+}
+    exit;
+
+
     if($_SERVER['REQUEST_METHOD']==='POST'){
 
         if(empty($_POST['firstname']) || empty($_POST['lastname'])||empty($_POST['userid'])||empty($_POST['email'])||($_POST['role'] =='nothing')||empty($_POST['password'])||empty($_POST['password1'])||strlen($_POST['userid'])!=8 ){
