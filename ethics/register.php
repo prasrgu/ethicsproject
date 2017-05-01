@@ -38,6 +38,7 @@
 
                 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
                 echo 'error: -> '.mysqli_error($link);
+
                 EXIT;
 
                 if (mysqli_query($link, $query1)) {
