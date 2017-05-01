@@ -46,7 +46,7 @@
             }
 
             if($role !="STUDENT"){
-                $query1= "INSERT INTO `staff` (`staff_ID`, `role`, `firstname`, `lastname`, `password`, `email`, `address`) VALUES ('A2234567', 'ADMIN', 's', 's', 's', 's@rgu.com', 's');
+                $query1= "INSERT INTO staff(`staff_ID`, `role`, `firstname`, `lastname`, `password`, `email`, `address`) VALUES ('A2234567', 'ADMIN', 's', 's', 's', 's@rgu.com', 's');
                 mysqli_query($link, $query1)";
                 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
                 echo 'error: -> '.mysqli_error($link);
