@@ -46,8 +46,9 @@
             }
 
             if($role !="STUDENT"){
-                $query1="INSERT INTO localdb.staff  VALUES ('$userid','$role','$firstname', '$lastname', '$password', '$email', '$adres')";
+                $query1="INSERT INTO 'localdb.staff'  VALUES ('$userid','$role','$firstname', '$lastname', '$password', '$email', '$adres')";
                 mysqli_query($link, $query1);
+                echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
                 echo 'error: -> '.mysqli_error($link);
 exit;
                // mysqli_query($link, $query1);
