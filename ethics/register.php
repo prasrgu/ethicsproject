@@ -14,7 +14,7 @@ if (!$result) {
     echo 'MySQL Error: ' . mysqli_error($link);
     exit;
 }
-
+echo "About to show tables<br>";
 while ($row = mysqli_fetch_row($result)) {
     echo "Table: {$row[0]}\n";
 }
