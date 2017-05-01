@@ -34,6 +34,12 @@
             if($role=="STUDENT"){
                 $query1="INSERT INTO student VALUES ('$firstname', '$lastname', '$userid', '$password', '$email', '$adres')";
 
+                mysqli_query($link, $query1);
+
+                echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+                echo 'error: -> '.mysqli_error($link);
+                EXIT;
+
                 if (mysqli_query($link, $query1)) {
                     echo "New record created successfully";
                 } else {
@@ -47,10 +53,7 @@
 
             if($role !="STUDENT"){
                 $query1="INSERT INTO staff  VALUES ('$userid','$role','$firstname', '$lastname', 'www', '$email', '$adres')";
-                mysqli_query($link, $query1);
 
-                echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
-                echo 'error: -> '.mysqli_error($link);
 exit;
                // mysqli_query($link, $query1);
                 if (mysqli_query($link, $query1)) {
