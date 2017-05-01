@@ -1,35 +1,33 @@
 <?php
 
-$request_verb  = $_SERVER['REQUEST_METHOD'];
-$requ = explode ("/", substr(@$_SERVER['PATH_INFO'], 1));
+$request_verb = $_SERVER['REQUEST_METHOD'];
+$requ = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 $requ = array_map('strtolower', $requ);
 header('Content-Type: application/json');
 include('connection.php');
 
 
-if(isset($requ[0])) {
+if (isset($requ[0])) {
 
     switch ($request_verb) {
         case 'PUT':
-            if((count($requ)<6)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
+            if ((count($requ) < 6) && ($requ[0] == 'projects' || $requ[0] == 'staff' || $requ[0] == 'student')) {
 
-                $ans= json_encode($requ);
-                var_dump($requ);
-                        $query = "UPDATE {$requ[0]} SET {$requ[1]} = '{$requ[2]}' WHERE {$requ[3]} = '{$requ[4]}'";
 
+                $query = "UPDATE {$requ[0]} SET {$requ[1]} = '{$requ[2]}' WHERE {$requ[3]} = '{$requ[4]}'";
 
 
                 $result = mysqli_query($link, $query);
 
-                }else{
-                            echo "It is rather Unfortunate";
+            } else {
+
             }
 
 
             break;
         case 'POST':
-            if((count($requ)==7 || count($requ)==8)&& ($requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student')){
-                switch ($requ[0]){
+            if ((count($requ) == 7 || count($requ) == 8) && ($requ[0] == 'projects' || $requ[0] == 'staff' || $requ[0] == 'student')) {
+                switch ($requ[0]) {
                     case 'projects':
                         $query = "INSERT INTO {$requ[0]} VALUES ('{$requ[1]}', '{$requ[2]}', '{$requ[3]}', '{$requ[4]}' , '{$requ[5]}', '{$requ[6]}' ) ";
                         break;
@@ -44,35 +42,34 @@ if(isset($requ[0])) {
 
                 $result = mysqli_query($link, $query);
 
-            }else{
+            } else {
 
             }
-                break;
+            break;
         case 'GET':
 
-            if( $requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student') {
-                if(count($requ)==1) {
+            if ($requ[0] == 'projects' || $requ[0] == 'staff' || $requ[0] == 'student') {
+                if (count($requ) == 1) {
                     $query = "SELECT * FROM {$requ[0]}";
                     $result = mysqli_query($link, $query);
-                }
-                elseif (count($requ)==2){
-                    switch ($requ[0]){
+                } elseif (count($requ) == 2) {
+                    switch ($requ[0]) {
                         case 'projects':
-                            $arrr = ['title','std_ID', 'ethics_form_ID'];
+                            $arrr = ['title', 'std_ID', 'ethics_form_ID'];
                             break;
                         case 'staff':
-                            $arrr = ['staff_ID','role', 'firstname','lastname'];
+                            $arrr = ['staff_ID', 'role', 'firstname', 'lastname'];
                             break;
                         case 'student':
-                            $arrr = ['student_ID', 'firstname','lastname'];
+                            $arrr = ['student_ID', 'firstname', 'lastname'];
                             break;
 
                     }
                     unset($result);
-                    foreach($arrr AS $value){
+                    foreach ($arrr AS $value) {
                         $query = "SELECT * FROM $requ[0] WHERE $value ='{$requ[1]}'";
-                        $result=mysqli_query($link, $query);
-                        if(mysqli_num_rows($result)>0)
+                        $result = mysqli_query($link, $query);
+                        if (mysqli_num_rows($result) > 0)
                             break;
 
 
@@ -81,13 +78,7 @@ if(isset($requ[0])) {
                     unset($arrr);
 
 
-
-
-
                 }
-
-
-
 
 
             }
@@ -95,15 +86,14 @@ if(isset($requ[0])) {
 
             break;
         case 'DELETE':
-            if( $requ[0]=='projects'||$requ[0]=='staff' || $requ[0]=='student'){
-                if(count($requ)==1) {
+            if ($requ[0] == 'projects' || $requ[0] == 'staff' || $requ[0] == 'student') {
+                if (count($requ) == 1) {
                     $query = "DELETE * FROM {$requ[0]}";
                     $result = mysqli_query($link, $query);
-                }
-                elseif (count($requ)>1 && count($requ)<5){
+                } elseif (count($requ) > 1 && count($requ) < 5) {
                     unset($value);
                     unset($arrr);
-                    switch($requ[0]) {
+                    switch ($requ[0]) {
                         case 'projects':
                             $arrr = ['title', 'std_ID', 'ethics_form_ID'];
                             break;
@@ -118,10 +108,10 @@ if(isset($requ[0])) {
 
                 }
                 unset($result);
-                foreach($arrr AS $value){
+                foreach ($arrr AS $value) {
                     $query = "DELETE FROM $requ[0] WHERE $value ='{$requ[1]}'";
-                    $result=mysqli_query($link, $query);
-                    if(mysqli_num_rows($result)>0)
+                    $result = mysqli_query($link, $query);
+                    if (mysqli_num_rows($result) > 0)
                         break;
 
 
@@ -131,32 +121,32 @@ if(isset($requ[0])) {
             }
             break;
         default:
-            echo "I do not understand You";
+            echo "Invalid query";
 
 
     }
 
 
-     if (mysqli_num_rows($result) > 0) {
-    $count = 0;
-    while ($res = mysqli_fetch_assoc($result)) {
-        $prite[$count] = $res;
-        $count++;
+    if (mysqli_num_rows($result) > 0) {
+        $count = 0;
+        while ($res = mysqli_fetch_assoc($result)) {
+            $prite[$count] = $res;
+            $count++;
 
+        }
+
+
+        $pry = json_encode($prite);
+        $pry = indent($pry);
+        echo $pry;
+    } else {
+
+        /*
+        $pry = ["id" => NULL, "title" => NULL, "description" => NULL, "submissionDate" => NULL, "std_ID" => null, "ethics_form_ID" => NULL, "message" => "No Records Available"];
+        echo $pry;
+        */
     }
-
-
-    $pry = json_encode($prite);
-    $pry = indent($pry);
-    echo $pry;
 } else {
-
-    /*
-    $pry = ["id" => NULL, "title" => NULL, "description" => NULL, "submissionDate" => NULL, "std_ID" => null, "ethics_form_ID" => NULL, "message" => "No Records Available"];
-    echo $pry;
-    */
-}
-}else{
 
 }
 
@@ -179,7 +169,6 @@ function indent($json)
 
         if ($char == '"' && $prevChar != '\\') {
             $outOfQuotes = !$outOfQuotes;
-
 
 
         } else if (($char == '}' || $char == ']') && $outOfQuotes) {
