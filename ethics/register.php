@@ -1,30 +1,6 @@
 <?php
     include ('connection.php');
 
-    error_reporting(E_ALL);
-    ini_set('display_errors',1);
-
-    $dbname = "localdb";
-
-$sql = "CREATE TABLE MyGuests (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-reg_date TIMESTAMP
-)";
-$result = mysqli_query($link, $sql);
-
-if (!$result) {
-    echo "DB Error, could not list tables\n";
-    echo 'MySQL Error: ' . mysqli_error($link);
-    exit;
-}
-echo "About to show tables<br>";
-while ($row = mysqli_fetch_row($result)) {
-    echo "Table: {$row[0]}\n";
-}
-    exit;
 
 
     if($_SERVER['REQUEST_METHOD']==='POST'){
@@ -57,13 +33,6 @@ while ($row = mysqli_fetch_row($result)) {
             if($role=="STUDENT"){
                 $query1="INSERT INTO student VALUES ('$firstname', '$lastname', '$userid', '$password', '$email', '$adres')";
 
-                mysqli_query($link, $query1);
-
-                echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
-                echo 'error: -> '.mysqli_error($link);
-
-                EXIT;
-
                 if (mysqli_query($link, $query1)) {
                     echo "New record created successfully";
                 } else {
@@ -76,9 +45,8 @@ while ($row = mysqli_fetch_row($result)) {
             }
 
             if($role !="STUDENT"){
-                $query1="INSERT INTO staff  VALUES ('$userid','$role','$firstname', '$lastname', 'www', '$email', '$adres')";
+                $query1="INSERT INTO staff  VALUES ('$userid','$role','$firstname', '$lastname', '$password', '$email', '$adres')";
 
-exit;
                // mysqli_query($link, $query1);
                 if (mysqli_query($link, $query1)) {
                     echo "New record created successfully";
