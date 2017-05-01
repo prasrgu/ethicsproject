@@ -1,8 +1,9 @@
 <?php
     include ('connection.php');
-    print_r($_POST);
-    exit;
+
     if($_SERVER['REQUEST_METHOD']==='POST'){
+        print_r($_POST);
+        exit;
         if(empty($_POST['firstname']) || empty($_POST['lastname'])||empty($_POST['userid'])||empty($_POST['email'])||($_POST['role'] =='nothing')||empty($_POST['password'])||empty($_POST['password1'])||strlen($_POST['userid'])!=8 ){
             echo "Please fill in all required fields";
         }
