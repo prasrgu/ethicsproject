@@ -6,7 +6,7 @@
     if($_SERVER['REQUEST_METHOD']==='POST'){
 
         if(empty($_POST['firstname']) || empty($_POST['lastname'])||empty($_POST['userid'])||empty($_POST['email'])||($_POST['role'] =='nothing')||empty($_POST['password'])||empty($_POST['password1'])||strlen($_POST['userid'])!=8 ){
-            echo "<p class='whitey'>"."Please fill in all required fields"."</p>";
+            echo "<span class='whitey'>"."Please fill in all required fields"."</span>";
         }
 
         elseif(!($_POST['password']=== $_POST['password1'])){
