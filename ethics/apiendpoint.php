@@ -3,7 +3,9 @@
 $request_verb = $_SERVER['REQUEST_METHOD'];
 $requ = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 $requ = array_map('strtolower', $requ);
-
+echo "project is";
+print_r($requ);
+exit;
 header('Content-Type: application/json');
 include('connection.php');
 
@@ -12,9 +14,6 @@ if (isset($requ[0])) {
 
     switch ($request_verb) {
         case 'PUT':
-            echo "project is ";
-            print_r($requ);
-            exit;
             if ((count($requ) < 6) && ($requ[0] == 'projects' || $requ[0] == 'staff' || $requ[0] == 'student')) {
 
 
