@@ -3,6 +3,7 @@
 $request_verb = $_SERVER['REQUEST_METHOD'];
 $requ = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 $requ = array_map('strtolower', $requ);
+echo "project is";
 print_r($requ);
 exit;
 header('Content-Type: application/json');
