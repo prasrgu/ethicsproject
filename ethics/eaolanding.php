@@ -5,6 +5,10 @@
   */
 include ('connection.php');
 session_start();
+?>
+    <a href="logout.php" style="font-weight: 600">Logout</a>
+
+<?
 
 if(isset($_SESSION['uid'])) {
     $sos = "SELECT * FROM projects WHERE id IN (SELECT projID FROM staff_proj WHERE staffId='{$_SESSION['uid']}')";
@@ -13,6 +17,10 @@ if(isset($_SESSION['uid'])) {
         if(mysqli_num_rows($sdvsd)>0){?>
             <table>
                 <thead>
+
+
+
+
                     <tr>
                         <th> Project Title</th>
                         <th> Student Name</th>
