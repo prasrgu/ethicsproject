@@ -47,12 +47,12 @@ if (isset($_SESSION['ufname'])) {
 
                 }else {
                     $_SESSION['fformat'] = "Invalid File Format";
-                    header('location: addethics.php');
+                    header('location: pjform.php');
                 }
 
             }else {
                 $_SESSION['large'] = "File too Large";
-                header('location: addethics.php');
+                header('location: pjform.php');
             }
 
         }
