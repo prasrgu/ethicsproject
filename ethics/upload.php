@@ -43,7 +43,9 @@ if (isset($_SESSION['ufname'])) {
                  $sq2 = "INSERT INTO projects (title, description, submissionDate, std_ID, ethics_form_ID)  VALUES ('$et', '$desc', '$dte', '$uid','$var')";
                  mysqli_query($link, $sq2);
 
+
                     mysqli_close($link);
+                    header('location: projlist.php');
 
                 }else {
                     $_SESSION['fformat'] = "Invalid File Format";
