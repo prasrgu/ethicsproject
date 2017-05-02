@@ -5,8 +5,8 @@
  */
 
 include('connection.php');
-error_reporting(E_ALL);
-ini_set('display_errors',1);
+//error_reporting(E_ALL);
+//ini_set('display_errors',1);
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +37,7 @@ ini_set('display_errors',1);
 <?
         $sqqq ="SELECT * FROM projects WHERE id NOT IN ( SELECT projID FROM staff_proj) ";
        $answe= mysqli_query($link, $sqqq);
-       echo "error-> :". mysqli_error($link);
+
         echo "<table class='table table-striped'><thead><tr><td>Student Name</td><td>Student ID</td> <td>Project Title</td></tr></thead><tbody>";
         if(mysqli_num_rows($answe)>0) {
 
