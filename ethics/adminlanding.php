@@ -32,7 +32,7 @@ include('connection.php');
 <body>
 <?php
 ?>
-<a href="logout.php">Logout</a>
+<a href="logout.php" style="font-weight: 600">Logout</a>
 
 <?
         $sqqq ="SELECT * FROM projects WHERE id NOT IN ( SELECT projID FROM staff_proj) ";
