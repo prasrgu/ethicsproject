@@ -19,9 +19,14 @@ if (isset($requ[0])) {
                 $query = "UPDATE {$requ[0]} SET {$requ[1]} = '{$requ[2]}' WHERE {$requ[3]} = '{$requ[4]}'";
 
 
-                $result = mysqli_query($link, $query);
+                if($result = mysqli_query($link, $query)){
+                    header("HTTP/1.0 200 Ok");
+                }else{
+                    header("HTTP/1.0 304 Not Modified");
+                }
 
             } else {
+                header("HTTP/1.0 400 Bad Request");
 
             }
 
@@ -42,10 +47,14 @@ if (isset($requ[0])) {
 
                 }
 
-                $result = mysqli_query($link, $query);
+                if($result = mysqli_query($link, $query)){
+                    header("HTTP/1.0 201 Created");
+                }else{
+                    header("HTTP/1.0 409 Conflict");
+                }
 
             } else {
-
+                header("HTTP/1.0 400 Bad Request");
             }
             break;
         case 'GET':
@@ -75,10 +84,15 @@ if (isset($requ[0])) {
                             break;
 
                     }
+                    header("HTTP/1.0 200 Ok");
                     unset($value);
                     unset($arrr);
+                }else{
+                    header("HTTP/1.0 400 Bad Request");
                 }
 
+            }else{
+                header("HTTP/1.0 400 Bad Request");
             }
 
 
@@ -87,7 +101,11 @@ if (isset($requ[0])) {
             if ($requ[0] == 'projects' || $requ[0] == 'staff' || $requ[0] == 'student') {
                 if (count($requ) == 1) {
                     $query = "DELETE * FROM {$requ[0]}";
-                    $result = mysqli_query($link, $query);
+                    if($result = mysqli_query($link, $query)){
+                        header("HTTP/1.0 200 Ok");
+                    }else{
+                        header("HTTP/1.0 404 Not Found");
+                    }
                 } elseif (count($requ) > 1 && count($requ) < 5) {
                     unset($value);
                     unset($arrr);
@@ -109,17 +127,26 @@ if (isset($requ[0])) {
                 foreach ($arrr AS $value) {
                     $query = "DELETE FROM $requ[0] WHERE $value ='{$requ[1]}'";
                     $result = mysqli_query($link, $query);
-                    if (mysqli_num_rows($result) > 0)
-                        break;
 
+
+                    if (mysqli_num_rows($result) > 0){
+
+                        header("HTTP/1.0 200 Ok");
+                        break;
+                    }
+                    else{
+                        header("HTTP/1.0 404 Not Found");
+                    }
 
                 }
 
 
+            }else{
+                header("HTTP/1.0 400 Bad Request");
             }
             break;
         default:
-            echo "Invalid query";
+            header("HTTP/1.0 400 Bad Request");
 
 
     }
@@ -145,8 +172,12 @@ if (isset($requ[0])) {
         */
     }
 } else {
-
+    header("HTTP/1.0 204 No Content Found");
 }
+
+
+
+
 
 
 function indent($json)
