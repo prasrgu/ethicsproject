@@ -31,7 +31,7 @@ else{
 
                 <?php $sq2 = "SELECT * FROM projects WHERE std_ID='{$_SESSION['uid']}'" ;
                          $reso =   mysqli_query($link, $sq2);
-                         echo "no o r: ".mysqli_num_rows($reso);
+                         echo "no o r: ".$_SESSION['uid'];
                          while ($rowen = mysqli_fetch_assoc($reso)){
 
                                  echo "<tr><td>" . "<a href='projdet.php?p={$rowen['id']}'>". $rowen['title'] ."</a>". "</td><td>" . $rowen['submissionDate'] . "</td></tr>";
